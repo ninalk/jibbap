@@ -6,7 +6,7 @@ const upload = multer();
 
 
 // /*---------- Public Routes ----------*/
-router.post('/', upload.single('photo'), recipesCtrl.create);
+router.post('/new', upload.single('photo'), recipesCtrl.create);
 router.get('/', recipesCtrl.index);
 
 
