@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react';
 import * as recipesApi from '../../utils/recipe-api';
+// import * as ingredientsApi from '../../utils/ingredientsService';
+// import * as instructionsApi from '../../utils/instructionsService';
 import { useHistory } from 'react-router-dom';
 
 export default function FormPage(){
@@ -12,6 +14,8 @@ export default function FormPage(){
         recipeName: '',
         description: '',
         cookTime: '',
+        ingredients: '',
+        instructions: ''
     });
     const history = useHistory();
 
@@ -25,6 +29,27 @@ export default function FormPage(){
             [e.target.name]: e.target.value
         });
     }
+
+    // async function addIngredient(recipeId){
+    //     try {
+    //         const data = await ingredientsApi.create(recipeId);
+    //         console.log(data, ' response from addIngredient')
+    //     } catch(err){
+    //         console.log(err)
+    //     }
+    // }
+
+    // async function deleteIngredient(ingredientId){
+    //     try {
+    //         const data = await ingredientsApi.removeIngredient(ingredientId)
+    //             console.log(data, ' response from removeIngredient')
+    //         } catch(err){
+    //             console.log(err)
+    //         } 
+    //     }
+    // }
+
+  
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -54,7 +79,7 @@ export default function FormPage(){
                 Create Recipe   
               </Header>            
                 <Form autoComplete="off"  onSubmit={handleSubmit}>
-                <Segment stacked>               
+                <Segment raised>               
                     <Form.Input                    
                       name="cuisine"
                       placeholder="cuisine"
@@ -85,6 +110,18 @@ export default function FormPage(){
                       value={ state.cookTime}
                       onChange={handleChange}
                       required
+                    />
+                    <Form.TextArea     
+                        name="ingredients"
+                        label="Ingredients"
+                        placeholder="Enter ingredients"
+                        onChange={handleChange}
+                    />
+                    <Form.TextArea     
+                        name="instructions"
+                        label="Instructions"
+                        placeholder="Enter brief instructions"
+                        onChange={handleChange}
                     />
                     <Form.Field> 
                         <Form.Input

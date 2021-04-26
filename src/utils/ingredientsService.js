@@ -19,3 +19,4 @@ export function removeIngredient(ingredientID){
         }
     }).then(res => res.json());
 }
+

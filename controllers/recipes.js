@@ -24,6 +24,8 @@ function create(req, res){
                 recipeName: req.body.recipeName,
                 description: req.body.description,
                 cookTime: req.body.cookTime,
+                ingredients: req.body.ingredients,
+                instructions: req.body.instructions,
                 photoUrl: data.Location, 
                 user: req.user
             });

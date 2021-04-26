@@ -6,19 +6,19 @@ const votesSchema = mongoose.Schema({
   stars: { type: Number, min: 1, max: 5}
 });
 
-const ingredientSchema = mongoose.Schema({
-  quantity: Number,
-  measurement: {
-    type: String,
-    enum: ['Tbsp', 'tsp', 'Oz', 'fl. Oz', 'c', 'qt', 'pt', 'gal', 'lb']
-  },
-  product: String
-});
+// const ingredientSchema = mongoose.Schema({
+//   quantity: Number,
+//   measurement: {
+//     type: String,
+//     enum: ['Tbsp', 'tsp', 'Oz', 'fl. Oz', 'c', 'qt', 'pt', 'gal', 'lb']
+//   },
+//   product: String
+// });
 
-const instructionSchema = mongoose.Schema({
-  stepNumber: Number,
-  stepDescription: String
-});
+// const instructionSchema = mongoose.Schema({
+//   stepNumber: Number,
+//   stepDescription: String
+// });
 
 const recipeSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
@@ -26,8 +26,8 @@ const recipeSchema = new mongoose.Schema({
   recipeName: String,
   description: String,
   cookTime: String,
-  ingredients: [ingredientSchema],
-  instructions: [instructionSchema],
+  ingredients: [String],
+  instructions: [String],
   photoUrl: String,
   votes: [votesSchema]
 });
