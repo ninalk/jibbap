@@ -6,9 +6,21 @@ import {  Grid } from 'semantic-ui-react'
 
 
 export default function FeedPage({ user }){
-    // console.log(recipes, ' recippess')
+    const [recipes, setRecipes] = useState([]);
 
-    // const [recipes, setRecipes] = useState([]);
+
+    async function getRecipes(){
+      try {
+        const data = await recipesApi.getAll();
+        setRecipes([...data.recipes]);
+      } catch(err){
+        console.log(err)
+      }
+    }
+
+    useEffect(() => {
+      getRecipes();
+    }, []);
 
 
     return (
@@ -20,7 +32,7 @@ export default function FeedPage({ user }){
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column style={{maxWidth: 450}}>
-                    <RecipeFeed  />
+                    <RecipeFeed recipes={recipes} user={user} />
                 </Grid.Column>
             </Grid.Row>
         </Grid>

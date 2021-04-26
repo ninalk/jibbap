@@ -44,7 +44,6 @@ export default function FormPage(props){
 
         try {
             await recipesApi.create(formData);
-            props.handleRecipeForm();
             history.push('/');
         } catch(err){
             console.log(err.message)

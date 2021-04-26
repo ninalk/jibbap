@@ -6,13 +6,14 @@ import LoginPage from '../LoginPage/LoginPage';
 import FeedPage from '../FeedPage/FeedPage';
 import FormPage from '../FormPage/FormPage';
 import userService from '../../utils/userService';
-
+import * as recipesApi from '../../utils/recipe-api';
 
 function App() {
 
   const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like 
   // this  const token = createJWT(user); // where user was the document we created from mongo
+  const [recipes, setRecipes] = useState([]);
 
   function handleSignUpOrLogin(){
     setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
@@ -22,6 +23,17 @@ function App() {
     userService.logout();
     setUser({user: null})
   }
+
+  // async function handleRecipeForm(recipe){
+  //   console.log('handle recipe form')
+  //   try {
+  //     const data = await recipesApi.create(recipe)
+  //     console.log(data, ' response from the create route')
+  //     setRecipes(recipes => [data.recipe, ...recipes])
+  //   } catch(err){
+  //     console.log(err)
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -39,7 +51,7 @@ function App() {
             <> 
              <Switch>
                 <Route exact path="/">
-                    <FeedPage />
+                    <FeedPage user={user} />
                 </Route>
             </Switch>
             </>
