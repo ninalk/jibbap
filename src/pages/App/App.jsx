@@ -5,6 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import FeedPage from '../FeedPage/FeedPage';
 import FormPage from '../FormPage/FormPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import userService from '../../utils/userService';
 import * as recipesApi from '../../utils/recipe-api';
 
@@ -24,17 +25,6 @@ function App() {
     setUser({user: null})
   }
 
-  // async function handleRecipeForm(recipe){
-  //   console.log('handle recipe form')
-  //   try {
-  //     const data = await recipesApi.create(recipe)
-  //     console.log(data, ' response from the create route')
-  //     setRecipes(recipes => [data.recipe, ...recipes])
-  //   } catch(err){
-  //     console.log(err)
-  //   }
-  // }
-
   return (
     <div className="App">
       <Switch>
@@ -51,7 +41,10 @@ function App() {
             <> 
              <Switch>
                 <Route exact path="/">
-                    <FeedPage user={user} />
+                    <FeedPage user={user} handleLogout={handleLogout} />
+                </Route>
+                <Route exact path="/:username">
+                    <ProfilePage user={user} handleLogout={handleLogout} />
                 </Route>
             </Switch>
             </>

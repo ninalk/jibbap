@@ -5,7 +5,7 @@ import * as recipesApi from '../../utils/recipe-api';
 import {  Grid } from 'semantic-ui-react'
 
 
-export default function FeedPage({ user }){
+export default function FeedPage({ user, handleLogout }){
     const [recipes, setRecipes] = useState([]);
 
 
@@ -27,12 +27,17 @@ export default function FeedPage({ user }){
         <Grid centered >
             <Grid.Row>
                 <Grid.Column>
-                    <PageHeader />
+                    <PageHeader user={user} handleLogout={handleLogout}/>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column style={{maxWidth: 450}}>
-                    <RecipeFeed recipes={recipes} user={user} />
+                <Grid.Column  style={{maxWidth: 600}}>
+                    <RecipeFeed 
+                      recipes={recipes} 
+                      user={user}
+                      numPhotosCol={1} 
+                      isProfile={false}
+                    />
                 </Grid.Column>
             </Grid.Row>
         </Grid>

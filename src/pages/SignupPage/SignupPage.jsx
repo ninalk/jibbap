@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import './SignupPage.css';
 import japchae from '../../images/japchae.jpeg';
-
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import {Button, Grid, Form, Segment, Header, Image} from 'semantic-ui-react';
-
 import userService from '../../utils/userService';
 import { useHistory } from 'react-router-dom';
 
@@ -37,23 +35,19 @@ export default function SignUpPage(props){
         formData.append('photo', selectedFile);
 
         for (let fieldName in state){
-            console.log(fieldName, state[fieldName]);
             formData.append(fieldName, state[fieldName]);
         }
 
         try {
-            console.log(formData.forEach((item) => console.log(item)));
             await userService.signup(formData);
-            props.handleSignupOrLogin();
+            props.handleSignUpOrLogin();
             history.push('/');
         } catch(err){
-            console.log(err.message)
             setError(err.message);
         }
     }
 
     function handleFileInput(e){
-        console.log(e.target.files)
         setSelectedFile(e.target.files[0])
     }
     

@@ -2,8 +2,15 @@ const mongoose = require('mongoose');
 
 const votesSchema = mongoose.Schema({
   username: String,
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  stars: { type: Number, min: 1, max: 5}
+  user: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
+  },
+  stars: { 
+    type: Number, 
+    min: 1, 
+    max: 5
+  }
 });
 
 // const ingredientSchema = mongoose.Schema({
@@ -21,7 +28,10 @@ const votesSchema = mongoose.Schema({
 // });
 
 const recipeSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  user: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
+  },
   cuisine: String,
   recipeName: String,
   description: String,
