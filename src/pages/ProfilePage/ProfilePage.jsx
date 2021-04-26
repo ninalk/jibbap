@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Loader } from 'semantic-ui-react'
+import { Grid, Loader, Divider } from 'semantic-ui-react'
 import userService from '../../utils/userService';
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';
@@ -56,8 +56,18 @@ export default function ProfilePage({ user, handleLogout }) {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row centered>
-                        <Grid.Column style={{ maxWidth: 750 }}>
-                            <RecipeFeed isProfile={true} recipes={recipes} numPhotosCol={3} user={user}/>
+                        <Grid.Column  className="twelve wide">
+                            <Divider></Divider>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row centered>
+                        <Grid.Column style={{maxWidth: 750}}>
+                            <RecipeFeed 
+                                isProfile={true} 
+                                recipes={recipes} 
+                                numPhotosCol={3} 
+                                user={user}                        
+                            />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

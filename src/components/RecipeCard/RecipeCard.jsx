@@ -5,7 +5,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 export default function RecipeCard({ user, recipe, isProfile }){
     console.log(recipe, user)
     return (
-        <Card key={recipe._id} style={{width: '600px' }}>
+        <Card key={recipe._id} >
         {isProfile ? '' 
             :        
             <Card.Content textAlign='left'>

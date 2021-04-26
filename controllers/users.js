@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Recipe = require('../models/recipe');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 const { v4: uuidv4 } = require('uuid');
@@ -11,7 +12,8 @@ const BUCKET_NAME = process.env.JIBBAB_BUCKET
 
 module.exports = {
   signup,
-  login
+  login,
+  profile
 };
 
 function signup(req, res) {
@@ -65,7 +67,20 @@ async function login(req, res) {
   }
 }
 
-
+async function profile(req, res){
+  try {
+    // First find the user using the params from the request
+    // findOne finds first match, its useful to have unique usernames!
+    const user = await User.findOne({username: req.params.username})
+    // Then find all the recipes that belong to that user
+    const recipes = await Recipe.find({user: user._id});
+    console.log(recipes, ' this recipes')
+    res.status(200).json({recipes: recipes, user: user})
+  } catch(err){
+    console.log(err)
+    res.send({err})
+  }
+}
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
