@@ -2,6 +2,7 @@ const Recipe = require('../models/recipe');
 const S3 = require('aws-sdk/clients/s3');
 const { v4: uuidv4 } = require('uuid');
 const s3 = new S3();
+const BUCKET_NAME = process.env.JIBBAB_BUCKET
 
 module.exports = {
     create,
@@ -49,8 +50,8 @@ function create(req, res){
 async function index(req, res){
     try {
         const recipes = await Recipe.find({}).populate('user').exec();
-        res.status(200).json({posts});
+        res.status(200).json({recipes});
     } catch(err){
-        resjson(err);
+        res.json(err);
     }
 }

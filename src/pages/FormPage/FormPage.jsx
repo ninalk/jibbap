@@ -6,7 +6,7 @@ import * as recipesApi from '../../utils/recipe-api';
 // import * as instructionsApi from '../../utils/instructionsService';
 import { useHistory } from 'react-router-dom';
 
-export default function FormPage(){
+export default function FormPage(props){
     const [error, setError] = useState('');
     const [selectedFile, setSelectedFile] = useState('');
     const [state, setState] = useState({
@@ -30,26 +30,6 @@ export default function FormPage(){
         });
     }
 
-    // async function addIngredient(recipeId){
-    //     try {
-    //         const data = await ingredientsApi.create(recipeId);
-    //         console.log(data, ' response from addIngredient')
-    //     } catch(err){
-    //         console.log(err)
-    //     }
-    // }
-
-    // async function deleteIngredient(ingredientId){
-    //     try {
-    //         const data = await ingredientsApi.removeIngredient(ingredientId)
-    //             console.log(data, ' response from removeIngredient')
-    //         } catch(err){
-    //             console.log(err)
-    //         } 
-    //     }
-    // }
-
-  
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -64,6 +44,7 @@ export default function FormPage(){
 
         try {
             await recipesApi.create(formData);
+            props.handleRecipeForm();
             history.push('/');
         } catch(err){
             console.log(err.message)

@@ -5,21 +5,22 @@ import tokenService from './tokenService';
 const BASE_URL = '/api/recipes';
 
 export function create(recipe){
-  console.log(recipe, 'in create')
-  return fetch(BASE_URL, {
-    method: 'POST',
-    body: recipe,
-    headers: {
-      'Authorization': 'Bearer ' + tokenService.getToken()
-    }
-  }).then(res => res.json())
+    console.log(recipe, 'in create')
+    return fetch(BASE_URL + '/new', {
+        method: 'POST',
+        body: recipe,
+        headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+        }
+    }).then(res => res.json())
 }
 
 export function getAll() {
-  return fetch(BASE_URL, {
-    headers: {
-      'Authorization': 'Bearer ' + tokenService.getToken()
-    }
-  })
-  .then(res => res.json());
+    console.log('hitting getAll')
+    return fetch(BASE_URL, {
+        headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+        }
+    })
+    .then(res => res.json());
 }
