@@ -1,10 +1,13 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import StarRating from '../../components/StarRating/StarRating';
+import { Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 
-export default function RecipeCard({ user, recipe, isProfile }){
+export default function RecipeCard({ user, recipe, isProfile, addVote, deleteVote }){
     console.log(recipe, user)
+
+
     return (
         <Card key={recipe._id} >
         {isProfile ? '' 
@@ -25,6 +28,12 @@ export default function RecipeCard({ user, recipe, isProfile }){
             <Card.Content textAlign='center'>
                 <Card.Description>
                     {recipe.recipeName}
+                <StarRating
+                    user={user}
+                    recipe={recipe} 
+                    addVote={addVote}
+                    deleteVote={deleteVote}
+                />
                 </Card.Description>
             </Card.Content>
             

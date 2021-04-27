@@ -22,7 +22,7 @@ export default function PageHeader({ user, handleLogout }){
                     </Dropdown.Menu>
                 </Dropdown>
             </Header>
-            <Header as='h3' floated='left'>
+            <Header as='h3' floated='left' className='logo'>
                 <Link to="/">JIBBAB JOURNEY</Link>
             </Header>
         </Segment>
