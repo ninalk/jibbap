@@ -6,6 +6,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import FeedPage from '../FeedPage/FeedPage';
 import FormPage from '../FormPage/FormPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import RecipePage from '../RecipePage/RecipePage';
 import userService from '../../utils/userService';
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
                 </Route>
                 <Route exact path="/:username">
                     <ProfilePage user={user} handleLogout={handleLogout} />
+                </Route>
+                <Route exact path="/recipes/:recipeId">
+                    <RecipePage user={user} handleLogout={handleLogout} />
                 </Route>
             </Switch>
             </>

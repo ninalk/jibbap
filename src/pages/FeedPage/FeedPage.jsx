@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './FeedPage.css';
 import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import * as recipesApi from '../../utils/recipe-api';
@@ -31,7 +32,7 @@ export default function FeedPage({ user, handleLogout }){
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column  style={{maxWidth: 620}}>
+                <Grid.Column  style={{maxWidth: 450}}>
                     <RecipeFeed 
                       recipes={recipes} 
                       user={user}

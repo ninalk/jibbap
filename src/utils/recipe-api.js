@@ -2,11 +2,11 @@ import tokenService from './tokenService';
 
 // This matches up with the app.use('/api/recipes') in the server.js
 // Where all our recipe api routes will live
-const BASE_URL = '/api/recipes';
+const BASE_URL = '/api/recipes/';
 
 export function create(recipe){
     console.log(recipe, 'in create')
-    return fetch(BASE_URL + '/new', {
+    return fetch(BASE_URL + 'new', {
         method: 'POST',
         body: recipe,
         headers: {
@@ -24,3 +24,14 @@ export function getAll() {
     })
     .then(res => res.json());
 }
+
+export function getRecipe(recipeId){
+    return fetch(BASE_URL + `${recipeId}`, {
+      headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+      }
+    }).then(res => {
+      if(res.ok) return res.json();
+      throw new Error('Bad Credentials')
+    })
+  }

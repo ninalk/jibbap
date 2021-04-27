@@ -6,7 +6,8 @@ const BUCKET_NAME = process.env.JIBBAB_BUCKET
 
 module.exports = {
     create,
-    index
+    index,
+    show
 }
 
 function create(req, res){
@@ -54,4 +55,17 @@ async function index(req, res){
     } catch(err){
         res.json(err);
     }
+}
+
+async function show(req, res){
+    console.log(req.params.id, 'parramms')
+    try {
+        const recipe = await Recipe.findById(req.params.id)
+        console.log(recipe, ' this is the recipe!')
+        res.status(200).json({recipe: recipe})
+    } catch(err){
+        console.log(err)
+        res.send({err})
+    }
+
 }

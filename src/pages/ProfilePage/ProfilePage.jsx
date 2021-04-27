@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ProfilePage.css';
 import { Grid, Loader, Divider } from 'semantic-ui-react'
 import userService from '../../utils/userService';
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
@@ -34,14 +35,10 @@ export default function ProfilePage({ user, handleLogout }) {
     return (
         <>
             { loading ?
-                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
-                
-                        <Grid.Column style={{ maxWidth: 450}}>
-                            
-                                <Loader size='large' active>Loading</Loader>
-                         
-                        </Grid.Column>
-                 
+                <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >                
+                    <Grid.Column style={{ maxWidth: 450}}>                            
+                        <Loader size='large' active>Loading</Loader>                         
+                    </Grid.Column>                 
                 </Grid>
                 :
                 <Grid>
