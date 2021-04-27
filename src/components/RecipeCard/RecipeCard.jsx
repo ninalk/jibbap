@@ -19,7 +19,9 @@ export default function RecipeCard({ user, recipe, isProfile }){
                 <Card.Header floated="right">{recipe.user.username}</Card.Header>
             </Card.Content>            
         }
-            <Image src={`${recipe.photoUrl}`} wrapped ui={false} />
+            <Link to={`/recipes/${recipe._id}`}>
+                <Image src={`${recipe.photoUrl}`} wrapped />
+            </Link>
             <Card.Content textAlign='center'>
                 <Card.Description>
                     {recipe.recipeName}
