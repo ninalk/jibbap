@@ -9,27 +9,7 @@ import {  Grid } from 'semantic-ui-react'
 
 export default function FeedPage({ user, handleLogout }){
     const [recipes, setRecipes] = useState([]);
-    const [votes, setVotes] = useState([]);
 
-    async function addVote(recipeID, vote){
-        try {
-          const data = await votesApi.create(recipeID, vote)
-          console.log(data, 'response from addVote')
-          getRecipes();
-        } catch(err){
-          console.log(err)
-        }
-    }
-
-    async function deleteVote(voteID){
-      try {
-        const data = await votesApi.removeVote(voteID)
-        console.log(data, 'response from deleteVote')
-        getRecipes();
-      } catch(err){
-        console.log(err)
-      }
-    }
 
     async function getRecipes(){
         try {
@@ -59,8 +39,6 @@ export default function FeedPage({ user, handleLogout }){
                       user={user}
                       numPhotosCol={1} 
                       isProfile={false}
-                      addVote={addVote}
-                      deleteVote={deleteVote}
                     />
                 </Grid.Column>
             </Grid.Row>

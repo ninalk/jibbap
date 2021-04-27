@@ -1,12 +1,13 @@
 import React from 'react';
+import StarRating from '../../components/StarRating/StarRating';
 import {  Header, Image, Rating, Grid } from 'semantic-ui-react'
 
-export default function RecipeHead({recipe}) {
+export default function RecipeHead({ user, recipe, addVote }) {
 
     return (
         <>
         <Header as='h1' textAlign='center'>{recipe.recipeName}</Header>            
-        <span><Rating maxRating={5} clearable size='large'/></span>
+        <StarRating recipe={recipe} user={user} addVote={addVote} />
         <Image src={recipe.photoUrl} size='big'/>    
         </>
     )

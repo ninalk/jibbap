@@ -6,6 +6,7 @@ import RecipeHead from '../../components/RecipeHead/RecipeHead';
 import RecipeSideBar from '../../components/RecipeSideBar/RecipeSideBar';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import * as recipesApi from '../../utils/recipe-api';
+import * as votesApi from '../../utils/votesService';
 import { useLocation } from 'react-router-dom';
 import {  Grid, Loader, Segment } from 'semantic-ui-react'
 
@@ -14,9 +15,20 @@ export default function RecipePage({ user, handleLogout }){
     const [recipe, setRecipe] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    
     const location = useLocation();
 
+    async function addVote(vote){
+        console.log(vote, 'handle addVote')
+        try {
+          const recipeID = recipe._id
+          const data = await votesApi.create(recipeID, vote)
+          console.log(data, 'response from addVote')
+          getOneRecipe();
+        } catch(err){
+          console.log(err)
+        }
+    }
+    
     async function getOneRecipe() {
       try {
         const recipeId = location.pathname.substring(1);
@@ -49,7 +61,11 @@ export default function RecipePage({ user, handleLogout }){
                     </Grid.Row>
                     <Grid.Row centered>
                         <Grid.Column style={{ maxWidth: 620}} className="ten wide" >
-                            <RecipeHead recipe={recipe} />              
+                            <RecipeHead
+                                user={user} 
+                                recipe={recipe}                       
+                                addVote={addVote}
+                            />              
                             <RecipeBody recipe={recipe} />
                         </Grid.Column>
                         <Grid.Column style={{ maxWidth: 280}} className="six wide notes">

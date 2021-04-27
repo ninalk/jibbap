@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Rating } from 'semantic-ui-react'
 
-export default function StarRating({ user, recipe, addVote, deleteVote }) {
-    // as a user, I want to rate a recipe by number of stars and it should turn black
-    // find out if user rated a card
+export default function StarRating({ user, recipe, addVote }) {
+    const [state, setState] = useState({
+        stars: 0
+    })
 
-    // const votedIndexNumber = recipe.votes.findIndex(vote => vote.username === user.username);
+    function handleRate(e, {rating}) {
+        setState({
+            stars: rating
+        });
+    }
 
-    // const clickHandler = votedIndexNumber > -1 ? () => deleteVote(recipe.votes[votedIndexNumber]._id) : () => addVote(recipe._id);
+    useEffect(() => {
+        addVote(state)
+    }, [state])
 
     return (
-        <Rating maxRating={5} />
+        <Rating maxRating={5} onRate={handleRate} />
     )
 }

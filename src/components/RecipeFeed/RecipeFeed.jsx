@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'semantic-ui-react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 
-export default function RecipeFeed({ user, recipes, numPhotosCol, isProfile, addVote, deleteVote }){
+export default function RecipeFeed({ user, recipes, numPhotosCol, isProfile }){
     
     return (
         <Card.Group itemsPerRow={numPhotosCol} stackable >
@@ -14,8 +14,6 @@ export default function RecipeFeed({ user, recipes, numPhotosCol, isProfile, add
                             recipe={recipe} 
                             key={recipe._id}
                             isProfile={isProfile} 
-                            addVote={addVote}
-                            deleteVote={deleteVote}
                         />
                     )
                 })}

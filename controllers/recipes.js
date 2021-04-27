@@ -11,8 +11,6 @@ module.exports = {
 }
 
 function create(req, res){
-    console.log(req.body, req.file, req.user)
-
     try {
         const filePath = `${uuidv4()}/${req.file.originalname}`;
         const params = { Bucket: BUCKET_NAME, Key: filePath, Body: req.file.buffer }
@@ -58,10 +56,8 @@ async function index(req, res){
 }
 
 async function show(req, res){
-    console.log(req.params.id, 'parramms')
     try {
         const recipe = await Recipe.findById(req.params.id)
-        console.log(recipe, ' this is the recipe!')
         res.status(200).json({recipe: recipe})
     } catch(err){
         console.log(err)
