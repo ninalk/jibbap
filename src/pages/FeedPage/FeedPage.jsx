@@ -33,7 +33,7 @@ export default function FeedPage({ user, handleLogout }){
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column  style={{maxWidth: 450}}>
+                <Grid.Column  style={{maxWidth: 640}}>
                     <RecipeFeed 
                       recipes={recipes} 
                       user={user}

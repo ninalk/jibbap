@@ -58,7 +58,7 @@ export default function ProfilePage({ user, handleLogout }) {
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row centered>
-                        <Grid.Column style={{maxWidth: 750}}>
+                        <Grid.Column style={{maxWidth: 900}}>
                             <RecipeFeed 
                                 isProfile={true} 
                                 recipes={recipes} 

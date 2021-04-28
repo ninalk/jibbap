@@ -33,15 +33,21 @@ export default function RecipePage({ user, handleLogout }){
       try {
         const recipeId = location.pathname.substring(1);
         const data = await recipesApi.getRecipe(recipeId);
-        setLoading(() => false);
-        setRecipe(() => data.recipe);
+        console.log(data, 'data')
+        
+        setRecipe(data.recipe);
+        setLoading(false);
+
       } catch(err){
         setError(err)
-      }
+      } 
     }
 
     useEffect(() => {
-      getOneRecipe();
+      
+       getOneRecipe();
+        
+      
     }, []);
 
     return (

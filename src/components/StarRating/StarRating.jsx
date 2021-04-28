@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Rating } from 'semantic-ui-react'
+import { Rating, Header, Grid } from 'semantic-ui-react'
 
 export default function StarRating({ user, recipe, addVote }) {
     const [state, setState] = useState({
@@ -12,11 +12,19 @@ export default function StarRating({ user, recipe, addVote }) {
         });
     }
 
+
     useEffect(() => {
         addVote(state)
     }, [state])
 
     return (
-        <Rating maxRating={5} onRate={handleRate} />
+        <>
+        <Grid textAlign='center'>
+            <Grid.Row >
+                <Rating maxRating={5}  onRate={handleRate} />
+                <p>&nbsp;{recipe.votes.length} Votes</p>
+            </Grid.Row>
+        </Grid>
+        </>
     )
 }

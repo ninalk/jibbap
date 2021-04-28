@@ -1,6 +1,6 @@
 import React from 'react';
 // import StarRating from '../../components/StarRating/StarRating';
-import { Card, Image, Rating } from 'semantic-ui-react'
+import { Card, Image, Rating, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 
@@ -32,11 +32,17 @@ export default function RecipeCard({ user, recipe, isProfile }){
             <Link to={`/recipes/${recipe._id}`}>
                 <Image src={`${recipe.photoUrl}`} wrapped />
             </Link>
-            <Card.Content textAlign='center'>
-                <Card.Description>
-                    {recipe.recipeName}
-                    <Rating disabled defaultRating={avgRating} maxRating={5}/>
-                </Card.Description>
+            <Card.Content>
+                <Grid textAlign='center'>
+                    <Grid.Row columns={2}>
+                        <Grid.Column>
+                            {recipe.recipeName}
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Rating disabled defaultRating={avgRating} maxRating={5} />
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </Card.Content>
             
         </Card>

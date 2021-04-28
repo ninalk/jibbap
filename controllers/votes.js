@@ -6,10 +6,8 @@ module.exports = {
 }
 
 async function create(req, res){
-    console.log(req.body, req.user, req.params.id, ' in create vote')
     try {
         const recipe = await Recipe.findById(req.params.id);
-        console.log(recipe, ' this recipe')
         recipe.votes.push({
             username: req.user.username, 
             userId: req.user._id, 
