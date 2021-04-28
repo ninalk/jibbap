@@ -28,7 +28,6 @@ export default function FormPage(props){
         });
     }
 
-
     async function handleSubmit(e){
         e.preventDefault()
         console.log(' handling form submit')
@@ -115,7 +114,7 @@ export default function FormPage(props){
                       color="teal"
                     >
                     Submit Recipe
-                  </Button>
+                    </Button>
                   </Segment>
                   {error ? <ErrorMessage error={error} /> : null}
                 </Form>

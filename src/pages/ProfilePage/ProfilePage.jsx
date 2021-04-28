@@ -12,7 +12,6 @@ export default function ProfilePage({ user, handleLogout }) {
     const [profileUser, setProfileUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [showForm, setShowForm] = useState(false);
 
     const location = useLocation();
 
@@ -23,27 +22,19 @@ export default function ProfilePage({ user, handleLogout }) {
             setLoading(() => false);
             setRecipes(() => [...data.recipes]);
             setProfileUser(() => data.user);
-            // setShowForm(false)
         } catch(err) {
             setError(err)
         }
     }
 
     async function editProfile(state){
-        console.log(state, 'hitting editProfile')
-
         try {
             const data = await userService.updateProfile(state);
-            // setShowForm(false)
         } catch(err){
             setError(err)
         }
     }
 
-    // function handleEditClick() {
-    //     setShowForm(true);
-    // }
-    
     useEffect(() => {
         getProfile();
     }, [])
@@ -69,7 +60,6 @@ export default function ProfilePage({ user, handleLogout }) {
                                 user={profileUser} 
                                 editProfile={editProfile} 
                                 recipes={recipes}
-                                // showForm={showForm}
                             />
                         </Grid.Column>
                     </Grid.Row>

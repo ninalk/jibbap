@@ -8,7 +8,7 @@ export default function UpdateProfileForm({ editProfile }) {
         username: '',
         bio: ''
     });
-    const [showForm, setShowForm] = useState(false);
+    const [showForm, setShowForm] = useState('none');
 
     function handleChange(e){
         setState({
@@ -24,107 +24,62 @@ export default function UpdateProfileForm({ editProfile }) {
         for (let key in state){
             formData.append(key, state[key])
         }
+        setShowForm('none')
         editProfile(state)
-        setShowForm(false)
     }
     
     function handleEditClick() {
-        setShowForm(true);
+        setShowForm('contents');
     }
 
     function handleCancelClick(){
-        setShowForm(false)
+        setShowForm('none')
     }
     
     return (
         <>
             <Button onClick={handleEditClick} floated='right'>Edit Profile</Button>
-
-            {showForm ?            
-                    <Form autoComplete="off" onSubmit={handleSubmit} style={{display: 'contents'}}>
-                        <Segment textAlign='center'>
-                            <Form.Input     
-                                name="name"
-                                type="name"
-                                placeholder="name"
-                                value={state.name}
-                                onChange={handleChange}
-                                required
-                            />
-                            <Form.Input     
-                                name="username"
-                                type="username"
-                                placeholder="username"
-                                value={state.username}
-                                onChange={handleChange}
-                                required
-                            />
-                            <Form.TextArea     
-                                name="bio"
-                                type="bio"
-                                placeholder="bio"
-                                value={state.bio}
-                                onChange={handleChange}
-                                required
-                            />
-                            <Button
-                                type="submit"
-                                className="btn"
-                            >
-                                Submit
-                            </Button>
-                            <Button
-                                type="submit"
-                                className="btn"
-                                onClick={handleCancelClick}
-                            >
-                                Cancel
-                            </Button>
-                        </Segment>
-                    </Form>
-                    :
-                    <Form autoComplete="off" onSubmit={handleSubmit} style={{display: 'none'}}>
-                        <Segment textAlign='center'>
-                            <Form.Input     
-                                name="name"
-                                type="name"
-                                placeholder="name"
-                                value={state.name}
-                                onChange={handleChange}
-                                required
-                            />
-                            <Form.Input     
-                                name="username"
-                                type="username"
-                                placeholder="username"
-                                value={state.username}
-                                onChange={handleChange}
-                                required
-                            />
-                            <Form.TextArea     
-                                name="bio"
-                                type="bio"
-                                placeholder="bio"
-                                value={state.bio}
-                                onChange={handleChange}
-                                required
-                            />
-                            <Button
-                                type="submit"
-                                className="btn"
-                            >
-                                Submit
-                            </Button>
-                            <Button
-                                type="submit"
-                                className="btn"
-                                onClick={handleCancelClick}
-                            >
-                                Cancel
-                            </Button>
-                        </Segment>
-                    </Form>
-            }
+            <Form autoComplete="off" onSubmit={handleSubmit} style={{display: showForm}}>
+                <Segment textAlign='center'>
+                    <Form.Input     
+                        name="name"
+                        type="name"
+                        placeholder="name"
+                        value={state.name}
+                        onChange={handleChange}
+                        required
+                    />
+                    <Form.Input     
+                        name="username"
+                        type="username"
+                        placeholder="username"
+                        value={state.username}
+                        onChange={handleChange}
+                        required
+                    />
+                    <Form.TextArea     
+                        name="bio"
+                        type="bio"
+                        placeholder="bio"
+                        value={state.bio}
+                        onChange={handleChange}
+                        required
+                    />
+                    <Button
+                        type="submit"
+                        className="btn"
+                    >
+                        Submit
+                    </Button>
+                    <Button
+                        type="submit"
+                        className="btn"
+                        onClick={handleCancelClick}
+                    >
+                        Cancel
+                    </Button>
+                </Segment>
+            </Form>
         </>
     )
 }
