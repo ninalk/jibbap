@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './ProfilePage.css';
-import { Grid, Loader, Divider } from 'semantic-ui-react'
+import { Grid, Loader, Divider, Button } from 'semantic-ui-react'
 import userService from '../../utils/userService';
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import { useLocation } from 'react-router-dom';
 
-export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin }) {
+export default function ProfilePage({ user, handleLogout }) {
     const [recipes, setRecipes] = useState([]);
     const [profileUser, setProfileUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [showForm, setShowForm] = useState(false);
 
     const location = useLocation();
 
@@ -22,23 +23,27 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
             setLoading(() => false);
             setRecipes(() => [...data.recipes]);
             setProfileUser(() => data.user);
+            // setShowForm(false)
         } catch(err) {
             setError(err)
         }
     }
 
-    async function editProfile(formData){
-        console.log(formData, 'hitting editProfile')
+    async function editProfile(state){
+        console.log(state, 'hitting editProfile')
 
         try {
-            const data = await userService.updateProfile(formData);
-            console.log(data, 'data in editProfile')
-            // handleSignUpOrLogin();
+            const data = await userService.updateProfile(state);
+            // setShowForm(false)
         } catch(err){
             setError(err)
         }
     }
 
+    // function handleEditClick() {
+    //     setShowForm(true);
+    // }
+    
     useEffect(() => {
         getProfile();
     }, [])
@@ -60,7 +65,12 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <ProfileBio user={profileUser} editProfile={editProfile} recipes={recipes}/>
+                            <ProfileBio 
+                                user={profileUser} 
+                                editProfile={editProfile} 
+                                recipes={recipes}
+                                // showForm={showForm}
+                            />
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row centered>

@@ -39,7 +39,7 @@ export default function RecipePage({ user, handleLogout }){
       } 
     }
 
-    async function updateRecipe() {
+    async function updateRecipe(recipe) {
         console.log('hitting updateRecipe')
         try {
             const recipeId = location.pathname.substring(1);

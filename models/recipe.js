@@ -11,21 +11,10 @@ const votesSchema = mongoose.Schema({
     min: 1, 
     max: 5
   }
+}, {
+  timestamp: true
 });
 
-// const ingredientSchema = mongoose.Schema({
-//   quantity: Number,
-//   measurement: {
-//     type: String,
-//     enum: ['Tbsp', 'tsp', 'Oz', 'fl. Oz', 'c', 'qt', 'pt', 'gal', 'lb']
-//   },
-//   product: String
-// });
-
-// const instructionSchema = mongoose.Schema({
-//   stepNumber: Number,
-//   stepDescription: String
-// });
 
 const recipeSchema = new mongoose.Schema({
   user: { 
@@ -39,7 +28,20 @@ const recipeSchema = new mongoose.Schema({
   ingredients: [String],
   instructions: [String],
   photoUrl: String,
-  votes: [votesSchema]
+  votes: [votesSchema],
+  date: {
+    type: String, 
+    default: function() {
+      const date = new Date();
+      const d = date.getDate();
+      const m = date.getMonth()+1;
+      const y = date.getFullYear();
+      const recipeDate = m + '/' + d + '/'+ y;
+      return recipeDate;
+    } 
+  } 
+},  {
+  timestamp: true
 });
 
 module.exports = mongoose.model('Recipe', recipeSchema);

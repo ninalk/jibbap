@@ -36,7 +36,7 @@ export function getRecipe(recipeId){
     })
   }
 
-  export function editRecipe(recipeId, recipe){
+export function editRecipe(recipeId, recipe){
     console.log(recipe, 'in edit')
     return fetch(BASE_URL + `${recipeId}`, {
         method: 'PUT',
@@ -46,4 +46,5 @@ export function getRecipe(recipeId){
         'Content-Type': 'application/json'
         }
     }).then(res => res.json())
-  }
+}
+

@@ -9,7 +9,8 @@ module.exports = {
     create,
     index,
     show,
-    update
+    update,
+    edit
 }
 
 function create(req, res){
@@ -70,20 +71,28 @@ async function show(req, res){
 
 async function update(req, res){
     try {
-        const recipe = await Recipe.findById(req.params.id, function(recipe) {
-            //update body of form
-            recipe.cuisine = req.body.cuisine;
-            recipe.recipeName = req.body.recipeName;
-            recipe.description = req.body.description;
-            recipe.cookTime = req.body.cookTime;
-            recipe.ingredients = req.body.ingredients;
-            recipe.instructions = req.body.instructions;
-        });
-
+        const recipe = await Recipe.findById(req.params.id);
+        //update body of form
+        recipe.cuisine = req.body.cuisine;
+        recipe.recipeName = req.body.recipeName;
+        recipe.description = req.body.description;
+        recipe.cookTime = req.body.cookTime;
+        recipe.ingredients = req.body.ingredients;
+        recipe.instructions = req.body.instructions;
         await recipe.save();
-        res.status(200).json({recipe: recipe});
+        res.status(200).json();
     } catch(err){
         console.log(err)
         res.send({err})
+    }
+}
+
+async function edit(req, res){
+    try {
+        const recipe = await Recipe.findById(req.params.id);
+        res.status(200).json({recipe: recipe});
+    } catch(err){
+        console.log(err)
+        res.send({err});
     }
 }
