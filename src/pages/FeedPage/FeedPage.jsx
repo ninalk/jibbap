@@ -3,13 +3,11 @@ import './FeedPage.css';
 import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import * as recipesApi from '../../utils/recipe-api';
-import * as votesApi from '../../utils/votesService';
 import {  Grid } from 'semantic-ui-react'
 
 
 export default function FeedPage({ user, handleLogout }){
     const [recipes, setRecipes] = useState([]);
-
 
     async function getRecipes(){
         try {
@@ -23,7 +21,6 @@ export default function FeedPage({ user, handleLogout }){
     useEffect(() => {
         getRecipes();
     }, []);
-
 
     return (
         <Grid centered >

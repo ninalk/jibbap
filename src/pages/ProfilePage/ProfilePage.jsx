@@ -7,14 +7,13 @@ import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import { useLocation } from 'react-router-dom';
 
-export default function ProfilePage({ user, handleLogout }) {
+export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin }) {
     const [recipes, setRecipes] = useState([]);
     const [profileUser, setProfileUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
     const location = useLocation();
-    console.log(location, 'location')
 
     async function getProfile(){
         try {
@@ -24,6 +23,18 @@ export default function ProfilePage({ user, handleLogout }) {
             setRecipes(() => [...data.recipes]);
             setProfileUser(() => data.user);
         } catch(err) {
+            setError(err)
+        }
+    }
+
+    async function editProfile(formData){
+        console.log(formData, 'hitting editProfile')
+
+        try {
+            const data = await userService.updateProfile(formData);
+            console.log(data, 'data in editProfile')
+            handleSignUpOrLogin();
+        } catch(err){
             setError(err)
         }
     }
@@ -49,7 +60,7 @@ export default function ProfilePage({ user, handleLogout }) {
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <ProfileBio user={profileUser} />
+                            <ProfileBio user={profileUser} editProfile={editProfile} />
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row centered>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Header, List } from 'semantic-ui-react'
+import { Header, List } from 'semantic-ui-react'
 
 export default function Instructions({recipe}){
     return (

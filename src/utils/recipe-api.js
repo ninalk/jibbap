@@ -35,3 +35,15 @@ export function getRecipe(recipeId){
       throw new Error('Bad Credentials')
     })
   }
+
+  export function editRecipe(recipeId, recipe){
+    console.log(recipe, 'in edit')
+    return fetch(BASE_URL + `${recipeId}`, {
+        method: 'PUT',
+        body: JSON.stringify(recipe),
+        headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken(),
+        'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+  }

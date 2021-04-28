@@ -1,7 +1,9 @@
 import React from 'react';
-import {  Image, Grid, Segment } from 'semantic-ui-react';
+import UpdateProfileForm from '../../components/UpdateProfileForm/UpdateProfileForm';
+import {  Image, Grid } from 'semantic-ui-react';
 
-export default function ProfileBio({user}) {  
+export default function ProfileBio({ user, editProfile }) {
+    
     return (
         <Grid columns={5} className="centered" >
         <Grid.Row>
@@ -12,6 +14,9 @@ export default function ProfileBio({user}) {
                 <h2>{user.username}</h2>
                 <p>{user.name}</p>
                 <span>{user.bio}</span>                
+            </Grid.Column>
+            <Grid.Column>
+                <UpdateProfileForm user={user} editProfile={editProfile}/>
             </Grid.Column>
         </Grid.Row>
         </Grid>

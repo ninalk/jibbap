@@ -1,11 +1,9 @@
 import React from 'react';
-// import StarRating from '../../components/StarRating/StarRating';
 import { Card, Image, Rating, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 
 export default function RecipeCard({ user, recipe, isProfile }){
-    console.log(recipe, user)
     let ratings = recipe.votes.map(vote => vote.stars)
     let sum = 0
     for (let x in ratings) {
@@ -13,7 +11,6 @@ export default function RecipeCard({ user, recipe, isProfile }){
     }
 
     let avgRating = sum / ratings.length;
-    console.log(avgRating)
 
     return (
         <Card key={recipe._id} >

@@ -8,7 +8,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import * as recipesApi from '../../utils/recipe-api';
 import * as votesApi from '../../utils/votesService';
 import { useLocation } from 'react-router-dom';
-import {  Grid, Loader, Segment } from 'semantic-ui-react'
+import {  Grid, Loader } from 'semantic-ui-react'
 
 
 export default function RecipePage({ user, handleLogout }){
@@ -18,11 +18,9 @@ export default function RecipePage({ user, handleLogout }){
     const location = useLocation();
 
     async function addVote(vote){
-        console.log(vote, 'handle addVote')
         try {
           const recipeID = recipe._id
-          const data = await votesApi.create(recipeID, vote)
-          console.log(data, 'response from addVote')
+          await votesApi.create(recipeID, vote)
           getOneRecipe();
         } catch(err){
           console.log(err)
@@ -32,9 +30,7 @@ export default function RecipePage({ user, handleLogout }){
     async function getOneRecipe() {
       try {
         const recipeId = location.pathname.substring(1);
-        const data = await recipesApi.getRecipe(recipeId);
-        console.log(data, 'data')
-        
+        const data = await recipesApi.getRecipe(recipeId);        
         setRecipe(data.recipe);
         setLoading(false);
 
@@ -43,11 +39,18 @@ export default function RecipePage({ user, handleLogout }){
       } 
     }
 
-    useEffect(() => {
-      
-       getOneRecipe();
-        
-      
+    async function updateRecipe() {
+        console.log('hitting updateRecipe')
+        try {
+            const recipeId = location.pathname.substring(1);
+            await recipesApi.editRecipe(recipeId, recipe);
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {      
+       getOneRecipe();      
     }, []);
 
     return (
@@ -75,7 +78,7 @@ export default function RecipePage({ user, handleLogout }){
                             <RecipeBody recipe={recipe} />
                         </Grid.Column>
                         <Grid.Column style={{ maxWidth: 280}} className="six wide notes">
-                            <RecipeSideBar recipe={recipe} />
+                            <RecipeSideBar recipe={recipe} updateRecipe={updateRecipe}/>
                         </Grid.Column>
                     </Grid.Row>
                     {error ? <ErrorMessage error={error} /> : null}

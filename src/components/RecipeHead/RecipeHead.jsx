@@ -1,6 +1,6 @@
 import React from 'react';
 import StarRating from '../../components/StarRating/StarRating';
-import {  Header, Image, Rating, Grid } from 'semantic-ui-react'
+import {  Header, Image } from 'semantic-ui-react'
 
 export default function RecipeHead({ user, recipe, addVote }) {
 

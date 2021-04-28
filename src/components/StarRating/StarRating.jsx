@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Rating, Header, Grid } from 'semantic-ui-react'
+import { Rating, Grid } from 'semantic-ui-react'
 
 export default function StarRating({ user, recipe, addVote }) {
     const [state, setState] = useState({
@@ -12,16 +12,23 @@ export default function StarRating({ user, recipe, addVote }) {
         });
     }
 
-
     useEffect(() => {
         addVote(state)
     }, [state])
+
+    let ratings = recipe.votes.map(vote => vote.stars)
+    let sum = 0
+    for (let x in ratings) {
+        sum += ratings[x];
+    }
+
+    let avgRating = sum / ratings.length;
 
     return (
         <>
         <Grid textAlign='center'>
             <Grid.Row >
-                <Rating maxRating={5}  onRate={handleRate} />
+                <Rating maxRating={5} defaultRating={avgRating} onRate={handleRate} />
                 <p>&nbsp;{recipe.votes.length} Votes</p>
             </Grid.Row>
         </Grid>

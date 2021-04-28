@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button, Form, Segment } from 'semantic-ui-react'
 
-export default function AddIngredientForm(props){
+
+export default function UpdateProfileForm({ user, editProfile }) {
     const [state, setState] = useState({
-        quantity: 0,
-        measurement: '',
-        product: ''
+        name: '',
+        username: '',
+        bio: ''
     });
 
     function handleChange(e){
@@ -16,37 +17,42 @@ export default function AddIngredientForm(props){
     }
 
     function handleSubmit(e){
-        e.preventDefault()
+        e.preventDefault();
         console.log('is handlesUbmit being called?')
-            
-        // Have to submit the form now! We need a function!
-        props.handleAddIngredient(state)
+        const formData = new FormData();
+
+        for (let key in state){
+            formData.append(key, state[key])
+        }
+        editProfile(formData)
     }
+
+        
 
     return (
         <Form autoComplete="off" onSubmit={handleSubmit}>
-            <Segment>
+            <Segment textAlign='center'>
                 <Form.Input     
-                    name="quantity"
-                    type="quantity"
-                    placeholder="quantity"
-                    value={ state.quantity}
+                    name="name"
+                    type="name"
+                    placeholder="name"
+                    value={state.name}
                     onChange={handleChange}
                     required
                 />
                 <Form.Input     
-                    name="measurement"
-                    type="measurement"
-                    placeholder="measurement"
-                    value={ state.measurement}
+                    name="username"
+                    type="username"
+                    placeholder="username"
+                    value={state.username}
                     onChange={handleChange}
                     required
                 />
                 <Form.Input     
-                    name="product"
-                    type="product"
-                    placeholder="product"
-                    value={ state.product}
+                    name="bio"
+                    type="bio"
+                    placeholder="bio"
+                    value={state.bio}
                     onChange={handleChange}
                     required
                 />
@@ -54,10 +60,9 @@ export default function AddIngredientForm(props){
                     type="submit"
                     className="btn"
                 >
-                    Add Ingredient
+                    Edit Profile
                 </Button>
             </Segment>
         </Form>
     )
-
 }

@@ -9,7 +9,7 @@ router.post('/login', usersCtrl.login);
 router.get('/:username', usersCtrl.profile);
 
 /*---------- Protected Routes ----------*/
-
+router.put('/', usersCtrl.update);
 
 
 

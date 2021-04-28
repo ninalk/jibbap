@@ -16,46 +16,46 @@ function App() {
   // this  const token = createJWT(user); // where user was the document we created from mongo
 
   function handleSignUpOrLogin(){
-    setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
+      setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
   }
 
   function handleLogout(){
-    userService.logout();
-    setUser({user: null})
+      userService.logout();
+      setUser({user: null})
   }
 
   return (
-    <div className="App">
-      <Switch>
-          <Route exact path="/login">
-             <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-          </Route>
-          <Route exact path="/signup">
-             <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
-          </Route>
-          <Route exact path="/new">
-             <FormPage />
-          </Route>
-          {userService.getUser() ? 
-            <> 
-             <Switch>
-                <Route exact path="/">
-                    <FeedPage user={user} handleLogout={handleLogout} />
-                </Route>
-                <Route exact path="/:username">
-                    <ProfilePage user={user} handleLogout={handleLogout} />
-                </Route>
-                <Route exact path="/recipes/:recipeId">
-                    <RecipePage user={user} handleLogout={handleLogout} />
-                </Route>
-            </Switch>
-            </>
-            :
-            <Redirect to='/login'/>
-          }
-  
-      </Switch>
-    </div>
+      <div className="App">
+          <Switch>
+              <Route exact path="/login">
+                  <LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+              </Route>
+              <Route exact path="/signup">
+                  <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+              </Route>
+              <Route exact path="/new">
+                  <FormPage />
+              </Route>
+              {userService.getUser() ? 
+                  <> 
+                  <Switch>
+                      <Route exact path="/">
+                          <FeedPage user={user} handleLogout={handleLogout} />
+                      </Route>
+                      <Route exact path="/:username">
+                          <ProfilePage user={user} handleLogout={handleLogout} handleSignUpOrLogin={handleSignUpOrLogin}/>
+                      </Route>
+                      <Route exact path="/recipes/:recipeId">
+                          <RecipePage user={user} handleLogout={handleLogout} />
+                      </Route>
+                  </Switch>
+                  </>
+                  :
+                  <Redirect to='/login'/>
+              }
+      
+          </Switch>
+      </div>
   );
 }
 

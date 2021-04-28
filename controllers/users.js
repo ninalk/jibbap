@@ -13,7 +13,8 @@ const BUCKET_NAME = process.env.JIBBAB_BUCKET
 module.exports = {
   signup,
   login,
-  profile
+  profile,
+  update
 };
 
 function signup(req, res) {
@@ -81,6 +82,23 @@ async function profile(req, res){
     res.send({err})
   }
 }
+
+async function update(req, res) {
+  console.log(req.body, 'in update')
+  try {
+    const user = await User.findOne({email: req.user.email});
+    user.name = req.body.name;
+    user.username = req.body.username;
+    user.bio = req.body.bio;
+
+    await user.save();
+    const token = createJWT(user);
+    res.json({token});
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+}
+
 /*----- Helper Functions -----*/
 
 function createJWT(user) {

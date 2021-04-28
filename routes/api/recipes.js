@@ -9,5 +9,6 @@ const upload = multer();
 router.post('/new', upload.single('photo'), recipesCtrl.create);
 router.get('/', recipesCtrl.index);
 router.get('/recipes/:id', recipesCtrl.show);
+router.put('/recipes/:id', recipesCtrl.update);
 
 module.exports = router;

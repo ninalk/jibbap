@@ -15,7 +15,6 @@ export default function LoginPage(props){
         password: ''
     });
 
-
     function handleChange(e){
         setState({
             ...state,
