@@ -22,12 +22,13 @@ export default function StarRating({ user, recipe, addVote }) {
         sum += ratings[x];
     }
 
-    let avgRating = sum / ratings.length;
+    let avgRating = (sum / ratings.length).toFixed(2);
 
     return (
         <>
         <Grid textAlign='center'>
             <Grid.Row >
+                <p>{avgRating} &nbsp;</p>
                 <Rating maxRating={5} defaultRating={avgRating} onRate={handleRate} />
                 <p>&nbsp;{recipe.votes.length} Votes</p>
             </Grid.Row>

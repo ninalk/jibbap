@@ -33,7 +33,7 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
         try {
             const data = await userService.updateProfile(formData);
             console.log(data, 'data in editProfile')
-            handleSignUpOrLogin();
+            // handleSignUpOrLogin();
         } catch(err){
             setError(err)
         }
@@ -60,7 +60,7 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
                     </Grid.Row>
                     <Grid.Row>
                         <Grid.Column>
-                            <ProfileBio user={profileUser} editProfile={editProfile} />
+                            <ProfileBio user={profileUser} editProfile={editProfile} recipes={recipes}/>
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row centered>

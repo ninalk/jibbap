@@ -24,7 +24,7 @@ export default function UpdateProfileForm({ user, editProfile }) {
         for (let key in state){
             formData.append(key, state[key])
         }
-        editProfile(formData)
+        editProfile(state)
     }
 
         

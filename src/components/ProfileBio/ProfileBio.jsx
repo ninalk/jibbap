@@ -2,7 +2,7 @@ import React from 'react';
 import UpdateProfileForm from '../../components/UpdateProfileForm/UpdateProfileForm';
 import {  Image, Grid } from 'semantic-ui-react';
 
-export default function ProfileBio({ user, editProfile }) {
+export default function ProfileBio({ user, editProfile, recipes }) {
     
     return (
         <Grid columns={5} className="centered" >

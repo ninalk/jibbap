@@ -75,7 +75,6 @@ async function profile(req, res){
     const user = await User.findOne({username: req.params.username})
     // Then find all the recipes that belong to that user
     const recipes = await Recipe.find({user: user._id});
-    console.log(recipes, ' this recipes')
     res.status(200).json({recipes: recipes, user: user})
   } catch(err){
     console.log(err)
@@ -84,18 +83,17 @@ async function profile(req, res){
 }
 
 async function update(req, res) {
-  console.log(req.body, 'in update')
+  console.log(req.body, req.user, 'hitting users controller request in update')
   try {
     const user = await User.findOne({email: req.user.email});
     user.name = req.body.name;
     user.username = req.body.username;
     user.bio = req.body.bio;
-
     await user.save();
-    const token = createJWT(user);
-    res.json({token});
+    res.json();
   } catch (err) {
-    return res.status(500).json(err);
+    console.log('ERROR: ', err)
+    return res.status(400).json(err);
   }
 }
 
