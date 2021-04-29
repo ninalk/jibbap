@@ -49,6 +49,7 @@ function signup(req, res) {
 }
 
 async function login(req, res) {
+  console.log(req.body, " in login")
   try {
     const user = await User.findOne({email: req.body.email});
     console.log(user, ' this user in login')
@@ -58,6 +59,7 @@ async function login(req, res) {
         
       if (isMatch) {
         const token = createJWT(user);
+        console.log(token, user, " in login")
         res.json({token});
       } else {
         return res.status(401).json({err: 'bad credentials'});
@@ -90,7 +92,8 @@ async function update(req, res) {
     user.username = req.body.username;
     user.bio = req.body.bio;
     await user.save();
-    res.json();
+    const token = createJWT(user); // user is the payload so this is the object in our jwt
+    res.json({ token });
   } catch (err) {
     console.log('ERROR: ', err)
     return res.status(400).json(err);

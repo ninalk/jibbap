@@ -72,6 +72,7 @@ function updateProfile(info) {
     if (res.ok) return res.json();
     throw new Error('Bad Credentials!');
   })
+  .then(({token}) => tokenService.setToken(token));
 }
 
 export default {

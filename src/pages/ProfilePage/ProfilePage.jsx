@@ -7,7 +7,7 @@ import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import { useLocation } from 'react-router-dom';
 
-export default function ProfilePage({ user, handleLogout }) {
+export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin }) {
     const [recipes, setRecipes] = useState([]);
     const [profileUser, setProfileUser] = useState({});
     const [loading, setLoading] = useState(true);
@@ -29,7 +29,9 @@ export default function ProfilePage({ user, handleLogout }) {
 
     async function editProfile(state){
         try {
-            await userService.updateProfile(state);
+            const data = await userService.updateProfile(state);
+            console.log(data, 'update')
+            handleSignUpOrLogin()
         } catch(err){
             setError(err)
         }
@@ -37,7 +39,7 @@ export default function ProfilePage({ user, handleLogout }) {
 
     useEffect(() => {
         getProfile();
-    }, [])
+    }, [user])
 
     return (
         <>

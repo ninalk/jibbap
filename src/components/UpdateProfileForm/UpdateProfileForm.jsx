@@ -19,7 +19,6 @@ export default function UpdateProfileForm({ editProfile }) {
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log('is handlesUbmit being called?')
         const formData = new FormData();
         for (let key in state){
             formData.append(key, state[key])
@@ -68,12 +67,14 @@ export default function UpdateProfileForm({ editProfile }) {
                     <Button
                         type="submit"
                         className="btn"
+                        size="mini"
                     >
                         Submit
                     </Button>
                     <Button
                         type="button"
                         className="btn"
+                        size="mini"
                         onClick={handleCancelClick}
                     >
                         Cancel
