@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProfilePage.css';
-import { Grid, Loader, Divider, Button } from 'semantic-ui-react'
+import { Grid, Loader, Divider } from 'semantic-ui-react'
 import userService from '../../utils/userService';
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import RecipeFeed from '../../components/RecipeFeed/RecipeFeed';

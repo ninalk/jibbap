@@ -7,11 +7,11 @@ export default function Ingredients({recipe}){
         <>
         <Header as='h3'>INGREDIENTS</Header>
             
-            {recipe.ingredients[0].split(', ').map(ingredient => {
+            {recipe.ingredients[0].split(', ').map((ingredient, index) => {
                 return (
                     <List>
-                        <List.Item>
-                            <Checkbox label={ingredient} />
+                        <List.Item >
+                            <Checkbox label={ingredient} key={index}/>
                         </List.Item>
                     </List>
                 )

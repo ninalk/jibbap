@@ -9,8 +9,7 @@ module.exports = {
     create,
     index,
     show,
-    update,
-    edit
+    update
 }
 
 function create(req, res){
@@ -70,6 +69,7 @@ async function show(req, res){
 }
 
 async function update(req, res){
+    console.log(req.body, ' in controller update')
     try {
         const recipe = await Recipe.findById(req.params.id);
         //update body of form
@@ -87,12 +87,3 @@ async function update(req, res){
     }
 }
 
-async function edit(req, res){
-    try {
-        const recipe = await Recipe.findById(req.params.id);
-        res.status(200).json({recipe: recipe});
-    } catch(err){
-        console.log(err)
-        res.send({err});
-    }
-}

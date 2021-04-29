@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Segment, Container } from 'semantic-ui-react'
+import { Button, Form, Segment } from 'semantic-ui-react'
 
 
 export default function UpdateProfileForm({ editProfile }) {

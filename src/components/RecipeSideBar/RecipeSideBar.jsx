@@ -5,19 +5,14 @@ import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 export default function RecipeSideBar({recipe, updateRecipe}) {   
     const [showForm, setShowForm] = useState('none');
     const [error, setError] = useState('');
-    const [selectedFile, setSelectedFile] = useState('');
     const [state, setState] = useState({
-        cuisine: '',
-        recipeName: '',
-        description: '',
-        cookTime: '',
-        ingredients: '',
-        instructions: ''
+        cuisine: recipe.cuisine,
+        recipeName: recipe.recipeName,
+        description: recipe.description,
+        cookTime: recipe.cookTime,
+        ingredients: recipe.ingredients,
+        instructions: recipe.instructions
     });
-
-    function handleFileInput(e){
-        setSelectedFile(e.target.files[0]);
-    }
 
     function handleChange(e){
         setState({
@@ -26,9 +21,10 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
         });
     }
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log('hitting submit')
         const formData = new FormData();
-        formData.append('photo', selectedFile);
         
         for (let key in state){
             formData.append(key, state[key]);
@@ -94,23 +90,17 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
                     <Form.TextArea     
                         name="ingredients"
                         label="Ingredients"
+                        // value={state.ingredients}
                         placeholder="Enter ingredients"
                         onChange={handleChange}
                     />
                     <Form.TextArea     
                         name="instructions"
                         label="Instructions"
+                        // value={state.instructions}
                         placeholder="Enter brief instructions"
                         onChange={handleChange}
                     />
-                    <Form.Field> 
-                        <Form.Input
-                          type="file"
-                          name="photo"
-                          placeholder="upload image"
-                          onChange={handleFileInput}
-                        />      
-                    </Form.Field>
                     <Button
                       type="submit"
                       className="btn"

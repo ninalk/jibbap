@@ -12,7 +12,6 @@ router.get('/recipes/:id', recipesCtrl.show);
 
 /*---------- Protected Routes ----------*/
 router.put('/recipes/:id', recipesCtrl.update);
-router.get('/recipes/:id/edit', recipesCtrl.edit)
 
 
 module.exports = router;
