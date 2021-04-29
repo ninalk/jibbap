@@ -9,7 +9,8 @@ module.exports = {
     create,
     index,
     show,
-    update
+    update,
+    deleteRecipe
 }
 
 function create(req, res){
@@ -87,3 +88,13 @@ async function update(req, res){
     }
 }
 
+async function deleteRecipe(req, res){
+    console.log('deleting recipe in controller')
+    try {
+        const recipe = await Recipe.findByIdAndDelete(req.params.id);
+        res.json();
+    } catch(err){
+        console.log(err)
+        res.send({err});
+    }
+}

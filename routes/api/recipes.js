@@ -12,6 +12,7 @@ router.get('/recipes/:id', recipesCtrl.show);
 
 /*---------- Protected Routes ----------*/
 router.put('/recipes/:id', recipesCtrl.update);
+router.delete('/recipes/:id', recipesCtrl.deleteRecipe)
 
 
 module.exports = router;

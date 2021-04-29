@@ -48,3 +48,11 @@ export function editRecipe(recipeId, recipe){
     }).then(res => res.json())
 }
 
+export function deleteOne(recipeId){
+    return fetch(BASE_URL + `${recipeId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+      }
+    }).then(res => res.json())
+}

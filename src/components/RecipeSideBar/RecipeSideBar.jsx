@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import RemoveRecipeButton from '../../components/RemoveRecipeButton/RemoveRecipeButton';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Segment, Modal, Icon } from 'semantic-ui-react';
 
-export default function RecipeSideBar({recipe, updateRecipe}) {   
+export default function RecipeSideBar({recipe, updateRecipe, removeRecipe}) {   
     const [showForm, setShowForm] = useState('none');
     const [error, setError] = useState('');
     const [state, setState] = useState({
@@ -13,6 +14,7 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
         ingredients: recipe.ingredients,
         instructions: recipe.instructions
     });
+    
 
     function handleChange(e){
         setState({
@@ -45,11 +47,11 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
     return (
         <>
         <Button onClick={handleEditClick}>Edit Recipe</Button>
+        <RemoveRecipeButton removeRecipe={removeRecipe} recipe={recipe}/>
         <Segment>
             <p><em>Date Created: {recipe.date}</em></p>
             <p><em>Special Notes: {recipe.description}</em></p>
         </Segment>
-        
         <Grid textAlign='center' style={{ height: '80vh', display: showForm }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
               <Header as='h3' textAlign='center'>

@@ -7,7 +7,7 @@ import RecipeSideBar from '../../components/RecipeSideBar/RecipeSideBar';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import * as recipesApi from '../../utils/recipe-api';
 import * as votesApi from '../../utils/votesService';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import {  Grid, Loader } from 'semantic-ui-react'
 
 
@@ -16,6 +16,7 @@ export default function RecipePage({ user, handleLogout }){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const location = useLocation();
+    const history = useHistory();
 
     async function addVote(vote){
         try {
@@ -49,6 +50,16 @@ export default function RecipePage({ user, handleLogout }){
         }
     }
 
+    async function removeRecipe(recipeId) {
+        try {
+            const data = await recipesApi.deleteOne(recipeId);
+            console.log(data, ' response from deleteOne')
+            history.push('/');
+        } catch (err){
+            console.log(err)
+        }
+    }
+
     useEffect(() => {      
        getOneRecipe();      
     }, []);
@@ -78,7 +89,11 @@ export default function RecipePage({ user, handleLogout }){
                             <RecipeBody recipe={recipe} />
                         </Grid.Column>
                         <Grid.Column style={{ maxWidth: 280}} className="six wide notes">
-                            <RecipeSideBar recipe={recipe} updateRecipe={updateRecipe}/>
+                            <RecipeSideBar 
+                                recipe={recipe} 
+                                updateRecipe={updateRecipe} 
+                                removeRecipe={removeRecipe}
+                            />
                         </Grid.Column>
                     </Grid.Row>
                     {error ? <ErrorMessage error={error} /> : null}
