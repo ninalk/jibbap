@@ -9,9 +9,9 @@ export default function Ingredients({recipe}){
             
             {recipe.ingredients[0].split(', ').map((ingredient, index) => {
                 return (
-                    <List>
-                        <List.Item >
-                            <Checkbox label={ingredient} key={index}/>
+                    <List key={index}>
+                        <List.Item key={ingredient.id}>
+                            <Checkbox label={ingredient} />
                         </List.Item>
                     </List>
                 )

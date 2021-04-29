@@ -29,7 +29,7 @@ export default function ProfilePage({ user, handleLogout }) {
 
     async function editProfile(state){
         try {
-            const data = await userService.updateProfile(state);
+            await userService.updateProfile(state);
         } catch(err){
             setError(err)
         }

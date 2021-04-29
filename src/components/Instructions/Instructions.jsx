@@ -8,8 +8,8 @@ export default function Instructions({recipe}){
             
             {recipe.instructions[0].split('. ').map((instruction, index) => {
                 return (
-                    <List as='ul'>
-                        <List.Item as='li' key={index}>
+                    <List as='ul' key={index}>
+                        <List.Item as='li' key={instruction.id}>
                             {instruction}
                         </List.Item>
                     </List>

@@ -41,6 +41,7 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
         setShowForm('contents')
     }
 
+    
     return (
         <>
         <Button onClick={handleEditClick}>Edit Recipe</Button>
@@ -92,6 +93,7 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
                         label="Ingredients"
                         // value={state.ingredients}
                         placeholder="Enter ingredients"
+                        style={{ minHeight: 100 }}
                         onChange={handleChange}
                     />
                     <Form.TextArea     
@@ -99,6 +101,7 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
                         label="Instructions"
                         // value={state.instructions}
                         placeholder="Enter brief instructions"
+                        style={{ minHeight: 100 }}
                         onChange={handleChange}
                     />
                     <Button
@@ -109,7 +112,7 @@ export default function RecipeSideBar({recipe, updateRecipe}) {
                     Submit
                     </Button>
                     <Button
-                        type="submit"
+                        type="button"
                         className="btn"
                         color="teal"
                         onClick={handleCancelClick}

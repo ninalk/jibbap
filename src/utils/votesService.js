@@ -3,8 +3,6 @@ import tokenService from './tokenService';
 const BASE_URL = '/api';
 
 export function create(recipeID, vote){
-    console.log(recipeID, vote, 'in createee vote')
-
     return fetch(`${BASE_URL}/recipes/recipes/${recipeID}/votes`, {
         method: 'POST',
         body: JSON.stringify(vote),
@@ -15,11 +13,11 @@ export function create(recipeID, vote){
     }).then(res => res.json());
 }
 
-export function removeVote(voteID){
-    return fetch(`${BASE_URL}/votes/${voteID}`, {
-        method: 'DELETE',
-        headers: {
-            'Authorization': 'Bearer ' + tokenService.getToken()
-          }
-    }).then(res => res.json())
-}
+// export function removeVote(voteID){
+//     return fetch(`${BASE_URL}/votes/${voteID}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'Authorization': 'Bearer ' + tokenService.getToken()
+//           }
+//     }).then(res => res.json())
+// }

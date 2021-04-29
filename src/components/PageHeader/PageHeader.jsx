@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Header, Segment, Image, Icon, Dropdown, Search } from 'semantic-ui-react';
+import { Header, Segment, Image, Icon, Dropdown } from 'semantic-ui-react';
 
 
 export default function PageHeader({ user, handleLogout }){

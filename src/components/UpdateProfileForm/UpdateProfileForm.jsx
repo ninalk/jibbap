@@ -72,7 +72,7 @@ export default function UpdateProfileForm({ editProfile }) {
                         Submit
                     </Button>
                     <Button
-                        type="submit"
+                        type="button"
                         className="btn"
                         onClick={handleCancelClick}
                     >
