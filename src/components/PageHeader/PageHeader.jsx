@@ -25,6 +25,8 @@ export default function PageHeader({ user, handleLogout }){
             <Header as='h3' floated='left' className='logo'>
                 <Link to="/">JIBBAB JOURNEY</Link>
             </Header>
+            <Header as='h3' floated='left' className='logo'>
+            </Header>
         </Segment>
     )
 }

@@ -89,7 +89,7 @@ async function update(req, res){
 }
 
 async function deleteRecipe(req, res){
-    console.log('deleting recipe in controller')
+    console.log(req.params.id, 'deleting recipe in controller')
     try {
         const recipe = await Recipe.findByIdAndDelete(req.params.id);
         res.json();

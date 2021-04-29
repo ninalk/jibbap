@@ -16,7 +16,6 @@ export function create(recipe){
 }
 
 export function getAll() {
-    console.log('hitting getAll')
     return fetch(BASE_URL, {
         headers: {
         'Authorization': 'Bearer ' + tokenService.getToken()
@@ -49,10 +48,12 @@ export function editRecipe(recipeId, recipe){
 }
 
 export function deleteOne(recipeId){
-    return fetch(BASE_URL + `${recipeId}`, {
+    return fetch(BASE_URL + `recipes/${recipeId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': 'Bearer ' + tokenService.getToken()
       }
-    }).then(res => res.json())
+    // }).then(res => res.json())
+    }).then(res => res.text())
+    .then(text => console.log(text))
 }

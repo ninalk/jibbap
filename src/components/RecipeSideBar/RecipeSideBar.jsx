@@ -49,8 +49,8 @@ export default function RecipeSideBar({recipe, updateRecipe, removeRecipe}) {
         <Button onClick={handleEditClick}>Edit Recipe</Button>
         <RemoveRecipeButton removeRecipe={removeRecipe} recipe={recipe}/>
         <Segment>
-            <p><em>Date Created: {recipe.date}</em></p>
-            <p><em>Special Notes: {recipe.description}</em></p>
+            <p><em>Date created: {recipe.date}</em></p>
+            <p><em>Special notes: {recipe.description}</em></p>
         </Segment>
         <Grid textAlign='center' style={{ height: '80vh', display: showForm }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>

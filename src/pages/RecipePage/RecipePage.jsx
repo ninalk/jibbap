@@ -51,6 +51,7 @@ export default function RecipePage({ user, handleLogout }){
     }
 
     async function removeRecipe(recipeId) {
+        console.log(recipeId, 'in removeRecipe')
         try {
             const data = await recipesApi.deleteOne(recipeId);
             console.log(data, ' response from deleteOne')

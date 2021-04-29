@@ -2,7 +2,7 @@ import React from 'react';
 import UpdateProfileForm from '../../components/UpdateProfileForm/UpdateProfileForm';
 import {  Image, Grid } from 'semantic-ui-react';
 
-export default function ProfileBio({ user, editProfile }) {
+export default function ProfileBio({ user, editProfile, recipes }) {
     
     return (
         <Grid columns={5} className="centered" >
@@ -10,9 +10,10 @@ export default function ProfileBio({ user, editProfile }) {
             <Grid.Column className="three wide">
             <Image src={`${user.photoUrl ? user.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} `} avatar size='medium' />
             </Grid.Column>
-            <Grid.Column textAlign="left" style={{ maxWidth: 450 }} className="eight wide">               
+            <Grid.Column textAlign="left" style={{ maxWidth: 300 }} className="eight wide">               
                 <h2>{user.username}</h2>
-                <p>{user.name}</p>
+                <p><strong>{recipes.length} recipes</strong></p>
+                <p><strong>{user.name}</strong></p>
                 <span>{user.bio}</span>                
             </Grid.Column>
             <Grid.Column>
