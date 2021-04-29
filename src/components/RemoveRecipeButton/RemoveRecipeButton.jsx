@@ -10,6 +10,11 @@ export default function RemoveRecipeButton({ removeRecipe, recipe }) {
         removeRecipe(recipeId)
     }
 
+    function handleTwoFunctions(){
+        setOpen(false);
+        handleDeleteClick();
+    }
+
     return (
         <>
         <Modal
@@ -27,7 +32,7 @@ export default function RemoveRecipeButton({ removeRecipe, recipe }) {
                 <Button basic color='red' inverted onClick={() => setOpen(false)}>
                     <Icon name='remove' /> No
                 </Button>
-                <Button color='green' inverted onClick={() => setOpen(false)} onClick={handleDeleteClick}>
+                <Button color='green' inverted onClick={() => handleTwoFunctions} >
                     <Icon name='checkmark' /> Yes
                 </Button>
             </Modal.Actions>

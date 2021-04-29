@@ -7,7 +7,7 @@ export default function Ingredients({recipe}){
         <>
         <Header as='h3'>INGREDIENTS</Header>
             
-            {recipe.ingredients[0].split(', ').map((ingredient, index) => {
+            {recipe.ingredients.split(', ').map((ingredient, index) => {
                 return (
                     <List key={index}>
                         <List.Item key={ingredient.id}>

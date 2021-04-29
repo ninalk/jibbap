@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import RemoveRecipeButton from '../../components/RemoveRecipeButton/RemoveRecipeButton';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { Button, Form, Grid, Header, Segment, Modal, Icon } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 
 export default function RecipeSideBar({recipe, updateRecipe, removeRecipe}) {   
     const [showForm, setShowForm] = useState('none');
@@ -92,16 +92,16 @@ export default function RecipeSideBar({recipe, updateRecipe, removeRecipe}) {
                     />
                     <Form.TextArea     
                         name="ingredients"
-                        label="Ingredients"
-                        // value={state.ingredients}
+                        type="ingredients"
+                        value={state.ingredients}
                         placeholder="Enter ingredients"
                         style={{ minHeight: 100 }}
                         onChange={handleChange}
                     />
                     <Form.TextArea     
                         name="instructions"
-                        label="Instructions"
-                        // value={state.instructions}
+                        type="instructions"
+                        value={state.instructions}
                         placeholder="Enter brief instructions"
                         style={{ minHeight: 100 }}
                         onChange={handleChange}
@@ -110,6 +110,7 @@ export default function RecipeSideBar({recipe, updateRecipe, removeRecipe}) {
                       type="submit"
                       className="btn"
                       color="teal"
+                      size="mini"
                     >
                     Submit
                     </Button>
@@ -117,6 +118,7 @@ export default function RecipeSideBar({recipe, updateRecipe, removeRecipe}) {
                         type="button"
                         className="btn"
                         color="teal"
+                        size="mini"
                         onClick={handleCancelClick}
                         >
                         Cancel

@@ -11,7 +11,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import {  Grid, Loader } from 'semantic-ui-react'
 
 
-export default function RecipePage({ user, handleLogout }){
+export default function RecipePage({ user, handleLogout, handleSignUpOrLogin }){
     const [recipe, setRecipe] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -44,7 +44,7 @@ export default function RecipePage({ user, handleLogout }){
         try {
             const recipeId = location.pathname.substring(1);
             await recipesApi.editRecipe(recipeId, recipe);
-            getOneRecipe()
+            handleSignUpOrLogin();
         } catch(err){
             console.log(err)
         }

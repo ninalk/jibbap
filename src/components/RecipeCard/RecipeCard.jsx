@@ -33,7 +33,7 @@ export default function RecipeCard({ user, recipe, isProfile }){
                 <Grid textAlign='center'>
                     <Grid.Row columns={2}>
                         <Grid.Column>
-                            {recipe.recipeName}
+                            <strong>{recipe.recipeName}</strong>
                         </Grid.Column>
                         <Grid.Column>
                             <Rating disabled defaultRating={avgRating} maxRating={5} />

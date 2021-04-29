@@ -46,7 +46,7 @@ function App() {
                           <ProfilePage user={user} handleLogout={handleLogout} handleSignUpOrLogin={handleSignUpOrLogin}/>
                       </Route>
                       <Route exact path="/recipes/:recipeId">
-                          <RecipePage user={user} handleLogout={handleLogout} />
+                          <RecipePage user={user} handleLogout={handleLogout} handleSignUpOrLogin={handleSignUpOrLogin}/>
                       </Route>
                   </Switch>
                   </>

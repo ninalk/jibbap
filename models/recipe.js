@@ -25,8 +25,8 @@ const recipeSchema = new mongoose.Schema({
   recipeName: String,
   description: String,
   cookTime: String,
-  ingredients: [String],
-  instructions: [String],
+  ingredients: String,
+  instructions: String,
   photoUrl: String,
   votes: [votesSchema],
   date: {

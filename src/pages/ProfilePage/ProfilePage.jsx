@@ -29,8 +29,7 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
 
     async function editProfile(state){
         try {
-            const data = await userService.updateProfile(state);
-            console.log(data, 'update')
+            await userService.updateProfile(state);
             handleSignUpOrLogin()
         } catch(err){
             setError(err)
