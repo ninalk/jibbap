@@ -28,7 +28,7 @@ export default function StarRating({ user, recipe, addVote }) {
         <>
         <Grid textAlign='center'>
             <Grid.Row >
-                <p>{avgRating} &nbsp;</p>
+                <p>{avgRating === 'NaN' ? '' : avgRating} &nbsp;</p>
                 <Rating maxRating={5} defaultRating={avgRating} onRate={handleRate} />
                 <p>&nbsp;{recipe.votes.length} Votes</p>
             </Grid.Row>
