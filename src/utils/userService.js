@@ -58,8 +58,6 @@ function getProfile(username){
 }
 
 function updateProfile(info) {
-  console.log(info, ' in updatePRofile')
-
   return fetch(BASE_URL, {
     method: 'PUT',
     headers: {
@@ -75,11 +73,23 @@ function updateProfile(info) {
   .then(({token}) => tokenService.setToken(token));
 }
 
+// function getAllProfiles(username) {
+//   return fetch(BASE_URL, {
+//     method: 'GET',
+//     headers: new Headers({'Content-Type': 'application/json'})
+//   })
+//   .then(res => {
+//     if (res.ok) return res.json();
+//     throw new Error('Error in the database');
+//   })
+// }
+
 export default {
   signup, 
   logout,
   login,
   getUser,
   getProfile,
-  updateProfile
+  updateProfile,
+  // getAllProfiles
 };

@@ -70,7 +70,6 @@ async function show(req, res){
 }
 
 async function update(req, res){
-    console.log(req.body, ' in controller update')
     try {
         const recipe = await Recipe.findById(req.params.id);
         //update body of form
@@ -89,7 +88,6 @@ async function update(req, res){
 }
 
 async function deleteRecipe(req, res){
-    console.log(req.params.id, 'deleting recipe in controller')
     try {
         const recipe = await Recipe.findByIdAndDelete(req.params.id);
         res.json();

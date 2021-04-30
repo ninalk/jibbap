@@ -2,7 +2,6 @@ const Recipe = require('../models/recipe');
 
 module.exports = {
     create,
-    // deleteVote
 }
 
 async function create(req, res){
@@ -20,17 +19,3 @@ async function create(req, res){
     }
 }
 
-// async function deleteVote(req, res){
-//     try {
-//         const recipe = await Recipe.findOne({
-//             'votes._id': req.params.id, 
-//             'votes.username': req.user.username
-//         });
-//         recipe.votes.remove(req.params.id)
-//         await recipe.save()
-//         res.json({data: 'vote removed'});
-//     } catch(err){
-//         res.json({error: err});
-//     }
-
-// }

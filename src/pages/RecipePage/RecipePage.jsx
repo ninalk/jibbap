@@ -44,7 +44,7 @@ export default function RecipePage({ user, handleLogout, handleSignUpOrLogin }){
         try {
             const recipeId = location.pathname.substring(1);
             await recipesApi.editRecipe(recipeId, recipe);
-            handleSignUpOrLogin();
+            handleSignUpOrLogin()
         } catch(err){
             console.log(err)
         }
@@ -90,7 +90,8 @@ export default function RecipePage({ user, handleLogout, handleSignUpOrLogin }){
                             <RecipeBody recipe={recipe} />
                         </Grid.Column>
                         <Grid.Column style={{ maxWidth: 280}} className="six wide notes">
-                            <RecipeSideBar 
+                            <RecipeSideBar
+                                user={user} 
                                 recipe={recipe} 
                                 updateRecipe={updateRecipe} 
                                 removeRecipe={removeRecipe}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, Segment } from 'semantic-ui-react'
 
 
-export default function UpdateProfileForm({ user, editProfile }) {
+export default function UpdateProfileForm({ editProfile, user, profileUser }) {
     const [state, setState] = useState({
         name: '',
         username: '',
@@ -36,8 +36,9 @@ export default function UpdateProfileForm({ user, editProfile }) {
     }
     
     return (
-        <>
-            <Button onClick={handleEditClick} floated='right'>Edit Profile</Button>
+        // { user._id === profileUser._id ?
+            <>      
+            <Button onClick={handleEditClick} floated='right' size='tiny'>Edit Profile</Button>
             <Form autoComplete="off" onSubmit={handleSubmit} style={{display: showForm}}>
                 <Segment textAlign='center'>
                     <Form.Input     
@@ -81,6 +82,8 @@ export default function UpdateProfileForm({ user, editProfile }) {
                     </Button>
                 </Segment>
             </Form>
-        </>
+            </>
+        //     : ''       
+        // }
     )
 }

@@ -23,7 +23,7 @@ export default function StarRating({ user, recipe, addVote }) {
     }
 
     let avgRating = (sum / ratings.length).toFixed(2);
-
+    
     return (
         <>
         <Grid textAlign='center'>

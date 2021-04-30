@@ -20,7 +20,7 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
             const username = location.pathname.substring(1);
             const data = await userService.getProfile(username);
             setLoading(() => false);
-            setRecipes(() => [...data.recipes]);
+            setRecipes(() => [...data.recipes.reverse()]);
             setProfileUser(() => data.user);
         } catch(err) {
             setError(err)
@@ -58,9 +58,10 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
                     <Grid.Row>
                         <Grid.Column>
                             <ProfileBio 
-                                user={profileUser} 
+                                profileUser={profileUser} 
                                 editProfile={editProfile} 
                                 recipes={recipes}
+                                user={user}
                             />
                         </Grid.Column>
                     </Grid.Row>

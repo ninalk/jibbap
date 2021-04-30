@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .App-logo {
@@ -46,5 +47,10 @@ a:hover {
 }
 
 .logo {
-  font-size: 1.45rem !important; 
+  font-size: 1.6rem !important; 
+  margin: 5px 0 0 100px !important;
+}
+
+.nav-bar {
+  padding: 4px !important;
 }

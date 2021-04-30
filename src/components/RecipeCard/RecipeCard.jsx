@@ -17,20 +17,23 @@ export default function RecipeCard({ user, recipe, isProfile }){
         {isProfile ? '' 
             :        
             <Card.Content textAlign='left'>
-                <Image
-                    floated='left'
-                    size='large'
-                    avatar
-                    src={recipe.user.photoUrl ? recipe.user.photoUrl : 'https://react.semantic-ui.com/images/wireframe/square-image.png'}
-                /> 
+                <Link to={`/${recipe.user.username}`}>
+                    <Image
+                        floated='left'
+                        size='large'
+                        avatar
+                        src={recipe.user.photoUrl ? recipe.user.photoUrl : 'https://react.semantic-ui.com/images/wireframe/square-image.png'}
+                    /> 
+                </Link>
                 <Card.Header floated="right">{recipe.user.username}</Card.Header>
+
             </Card.Content>            
         }
             <Link to={`/recipes/${recipe._id}`}>
                 <Image src={`${recipe.photoUrl}`} wrapped />
             </Link>
             <Card.Content>
-                <Grid textAlign='center'>
+                <Grid textAlign='center' verticalAlign='middle'>
                     <Grid.Row columns={2}>
                         <Grid.Column>
                             <strong>{recipe.recipeName}</strong>

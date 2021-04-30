@@ -14,7 +14,8 @@ module.exports = {
   signup,
   login,
   profile,
-  update
+  update,
+  // index
 };
 
 function signup(req, res) {
@@ -85,7 +86,6 @@ async function profile(req, res){
 }
 
 async function update(req, res) {
-  console.log(req.body, req.user, 'hitting users controller request in update')
   try {
     const user = await User.findOne({email: req.user.email});
     user.name = req.body.name;
@@ -100,6 +100,14 @@ async function update(req, res) {
   }
 }
 
+// async function index(req, res) {
+//   try {
+//     const users = await User.find({});
+//     res.status(200).json({users});
+//   } catch(err){
+//     res.json(err);
+//   }
+// }
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
