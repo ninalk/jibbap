@@ -23,7 +23,7 @@ export default function EditRecipeButton({ updateRecipe, recipe }) {
     }
 
     function handleSubmit(e){
-        e.preventDefault()
+        // e.preventDefault()
         console.log('hitting submit')
         const formData = new FormData();
         
@@ -49,7 +49,7 @@ export default function EditRecipeButton({ updateRecipe, recipe }) {
                         <Header as='h3' textAlign='center'>
                         Edit Recipe   
                         </Header>            
-                        <Form autoComplete="off"  onSubmit={handleSubmit}>
+                        <Form autoComplete="off" onSubmit={handleSubmit}>
                         <Segment raised>               
                             <Form.Input                    
                                 name="cuisine"
@@ -108,7 +108,7 @@ export default function EditRecipeButton({ updateRecipe, recipe }) {
                 <Button basic color='red' inverted onClick={() => setOpen(false)}>
                     <Icon name='remove' /> Cancel
                 </Button>
-                <Button color='green' inverted onClick={() => setOpen(false)} onClick={handleSubmit}>
+                <Button color='green' inverted onClick={() => {setOpen(false); handleSubmit();}}>
                     <Icon name='checkmark' /> Submit
                 </Button>
             </Modal.Actions>
