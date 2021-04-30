@@ -108,6 +108,7 @@ async function update(req, res) {
 //     res.json(err);
 //   }
 // }
+
 /*----- Helper Functions -----*/
 
 function createJWT(user) {

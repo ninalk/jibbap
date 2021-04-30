@@ -5,15 +5,14 @@ import {  Image, Grid, Header } from 'semantic-ui-react';
 export default function ProfileBio({ profileUser, editProfile, recipes, user }) {
     return (
         <Grid columns={6} className="centered" >
-        <Grid.Row>
             <Grid.Column className="three wide">
-            <Image 
-                src={`${profileUser.photoUrl ? profileUser.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} `} 
-                avatar 
-                size='medium' 
-                style={{ maxWidth: 180}}
-                centered
-                />
+                <Image 
+                    src={`${profileUser.photoUrl ? profileUser.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} `} 
+                    avatar 
+                    size='medium' 
+                    style={{ maxWidth: 180}}
+                    centered
+                    />
             </Grid.Column>
             <Grid.Column textAlign="left" style={{ maxWidth: 300 }} className="eight wide">               
                 <Header as='h2'>{profileUser.username}</Header>
@@ -28,10 +27,7 @@ export default function ProfileBio({ profileUser, editProfile, recipes, user }) 
                 </Grid.Column>
                 : ''
             }
-
-        </Grid.Row>
         </Grid>
-  
     );
   }
   
