@@ -46,7 +46,7 @@ export default function LoginPage(props){
                 />
                 <Form  autoComplete="off"  onSubmit={handleSubmit} style={{ maxWidth: 400 }} className="six wide column">
                     <Header as='h2' textAlign='center' className="signup-logo">
-                    JIBBAB JOURNEY
+                    JIBBAP JOURNEY
                     </Header>
                     <Segment stacked>
                         <Form.Input

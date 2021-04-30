@@ -23,7 +23,7 @@ export default function PageHeader({ profileUser, user, handleLogout }){
                 </Dropdown>
             </Header>
             <Header as='h3' textAlign='left' className='logo' >
-                <Link to="/">JIBBAB JOURNEY</Link>
+                <Link to="/">JIBBAP JOURNEY</Link>
             </Header>
             <Header as='h3' floated='left' className='logo'>
             </Header>

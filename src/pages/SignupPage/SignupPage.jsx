@@ -71,7 +71,7 @@ export default function SignUpPage(props){
                     as='h1'
                     className="signup-logo" 
                     >                                     
-                    JIBBAB JOURNEY
+                    JIBBAP JOURNEY
                 </Header>
                 <div 
                     size='small'
