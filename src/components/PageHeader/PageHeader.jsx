@@ -22,6 +22,7 @@ export default function PageHeader({ profileUser, user, handleLogout }){
                     </Dropdown.Menu>
                 </Dropdown>
             </Header>
+            {/* <Header floated='right'><Icon className='home' /></Header>             */}
             <Header as='h3' textAlign='left' className='logo' >
                 <Link to="/">JIBBAP JOURNEY</Link>
             </Header>

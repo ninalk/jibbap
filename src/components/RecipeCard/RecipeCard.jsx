@@ -30,7 +30,7 @@ export default function RecipeCard({ user, recipe, isProfile }){
             </Card.Content>            
         }
             <Link to={`/recipes/${recipe._id}`}>
-                <Image src={`${recipe.photoUrl}`} wrapped />
+                <Image src={`${recipe.photoUrl}`} wrapped style={{ objectFit: 'cover' }} />
             </Link>
             <Card.Content>
                 <Grid textAlign='center' verticalAlign='middle'>

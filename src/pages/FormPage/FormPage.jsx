@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FormPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 import * as recipesApi from '../../utils/recipe-api';
@@ -50,7 +51,7 @@ export default function FormPage(props){
 
     return (
         <>
-        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' className='form=page'>
           <Grid.Column style={{ maxWidth: 450 }}>
               <Header as='h1' textAlign='center' className="signup-logo">
                 Create Recipe   
