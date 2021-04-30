@@ -13,5 +13,4 @@ router.get('/:username', usersCtrl.profile);
 /*---------- Protected Routes ----------*/
 router.put('/', usersCtrl.update);
 
-
 module.exports = router;

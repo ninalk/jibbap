@@ -62,7 +62,7 @@ export default function RecipePage({ user, handleLogout, handleSignUpOrLogin }){
     }
 
     useEffect(() => {      
-       getOneRecipe();      
+       getOneRecipe(); 
     }, []);
 
     return (

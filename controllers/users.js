@@ -89,7 +89,7 @@ async function update(req, res) {
   try {
     const user = await User.findOne({email: req.user.email});
     user.name = req.body.name;
-    user.username = req.body.username;
+    // user.username = req.body.username;
     user.bio = req.body.bio;
     await user.save();
     const token = createJWT(user); // user is the payload so this is the object in our jwt

@@ -5,7 +5,7 @@ import { Button, Form, Segment } from 'semantic-ui-react'
 export default function UpdateProfileForm({ editProfile }) {
     const [state, setState] = useState({
         name: '',
-        username: '',
+        // username: '',
         bio: ''
     });
     const [showForm, setShowForm] = useState('none');
@@ -49,14 +49,14 @@ export default function UpdateProfileForm({ editProfile }) {
                         onChange={handleChange}
                         required
                     />
-                    <Form.Input     
+                    {/* <Form.Input     
                         name="username"
                         type="username"
                         placeholder="username"
                         value={state.username}
                         onChange={handleChange}
                         required
-                    />
+                    /> */}
                     <Form.TextArea     
                         name="bio"
                         type="bio"
