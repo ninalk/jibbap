@@ -61,6 +61,7 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
                                 profileUser={profileUser} 
                                 editProfile={editProfile} 
                                 recipes={recipes}
+                                user={user}
                             />
                         </Grid.Column>
                     </Grid.Row>

@@ -91,13 +91,13 @@ export default function FormPage(props){
                     <Form.TextArea     
                         name="ingredients"
                         label="Ingredients"
-                        placeholder="Enter ingredients (example: rice, eggs, salt)"
+                        placeholder="Enter ingredients (ex: rice, eggs, salt)"
                         onChange={handleChange}
                     />
                     <Form.TextArea     
                         name="instructions"
                         label="Instructions"
-                        placeholder="Enter instructions (example: Boil. Remove from heat. Serve.)"
+                        placeholder="Enter instructions (ex: Boil. Remove from heat. Serve.)"
                         onChange={handleChange}
                     />
                     <Form.Field> 

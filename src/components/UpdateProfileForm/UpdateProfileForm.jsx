@@ -36,54 +36,51 @@ export default function UpdateProfileForm({ editProfile }) {
     }
     
     return (
-        // { user._id === profileUser._id ?
-            <>      
-            <Button onClick={handleEditClick} floated='right' size='tiny'>Edit Profile</Button>
-            <Form autoComplete="off" onSubmit={handleSubmit} style={{display: showForm}}>
-                <Segment textAlign='center'>
-                    <Form.Input     
-                        name="name"
-                        type="name"
-                        placeholder="name"
-                        value={state.name}
-                        onChange={handleChange}
-                        required
-                    />
-                    {/* <Form.Input     
-                        name="username"
-                        type="username"
-                        placeholder="username"
-                        value={state.username}
-                        onChange={handleChange}
-                        required
-                    /> */}
-                    <Form.TextArea     
-                        name="bio"
-                        type="bio"
-                        placeholder="bio"
-                        value={state.bio}
-                        onChange={handleChange}
-                        required
-                    />
-                    <Button
-                        type="submit"
-                        className="btn"
-                        size="mini"
-                    >
-                        Submit
-                    </Button>
-                    <Button
-                        type="button"
-                        className="btn"
-                        size="mini"
-                        onClick={handleCancelClick}
-                    >
-                        Cancel
-                    </Button>
-                </Segment>
-            </Form>
-            </>
-        //     : ''       
-        // }
+        <>      
+        <Button onClick={handleEditClick} floated='right' size='tiny'>Edit Profile</Button>
+        <Form autoComplete="off" onSubmit={handleSubmit} style={{display: showForm}}>
+            <Segment textAlign='center'>
+                <Form.Input     
+                    name="name"
+                    type="name"
+                    placeholder="name"
+                    value={state.name}
+                    onChange={handleChange}
+                    required
+                />
+                {/* <Form.Input     
+                    name="username"
+                    type="username"
+                    placeholder="username"
+                    value={state.username}
+                    onChange={handleChange}
+                    required
+                /> */}
+                <Form.TextArea     
+                    name="bio"
+                    type="bio"
+                    placeholder="bio"
+                    value={state.bio}
+                    onChange={handleChange}
+                    required
+                />
+                <Button
+                    type="submit"
+                    className="btn"
+                    size="mini"
+                >
+                    Submit
+                </Button>
+                <Button
+                    type="button"
+                    className="btn"
+                    size="mini"
+                    onClick={handleCancelClick}
+                >
+                    Cancel
+                </Button>
+            </Segment>
+        </Form>
+        </>
     )
 }
