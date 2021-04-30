@@ -39,7 +39,7 @@ export default function LoginPage(props){
         <>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Image 
-                    style={{ maxWidth: 400 }}
+                    style={{ maxWidth: 300 }}
                     src={loginpage} 
                     className="six wide column image signup-image"
                     verticalAlign='middle'

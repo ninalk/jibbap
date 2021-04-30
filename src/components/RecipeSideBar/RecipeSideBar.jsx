@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RemoveRecipeButton from '../../components/RemoveRecipeButton/RemoveRecipeButton';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
@@ -43,6 +43,7 @@ export default function RecipeSideBar({user, recipe, updateRecipe, removeRecipe}
         setShowForm('contents')
     }
 
+ 
     
     return (
         <>

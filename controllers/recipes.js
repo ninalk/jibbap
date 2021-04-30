@@ -80,7 +80,7 @@ async function update(req, res){
         recipe.ingredients = req.body.ingredients;
         recipe.instructions = req.body.instructions;
         await recipe.save();
-        res.status(200).json();
+        res.status(200).json({recipe: recipe});
     } catch(err){
         console.log(err)
         res.send({err})

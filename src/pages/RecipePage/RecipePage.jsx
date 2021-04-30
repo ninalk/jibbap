@@ -43,8 +43,8 @@ export default function RecipePage({ user, handleLogout, handleSignUpOrLogin }){
     async function updateRecipe(recipe) {
         try {
             const recipeId = location.pathname.substring(1);
-            await recipesApi.editRecipe(recipeId, recipe);
-            handleSignUpOrLogin()
+            const data = await recipesApi.editRecipe(recipeId, recipe);
+            setRecipe(data.recipe)
         } catch(err){
             console.log(err)
         }

@@ -37,8 +37,9 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
     }
 
     useEffect(() => {
+        console.log('herrrree')
         getProfile();
-    }, [user])
+    }, [user, location.pathname])
 
     return (
         <>
@@ -52,7 +53,7 @@ export default function ProfilePage({ user, handleLogout, handleSignUpOrLogin })
                 <Grid>
                     <Grid.Row>
                         <Grid.Column>
-                            <PageHeader user={user} handleLogout={handleLogout}/>
+                            <PageHeader profileUser={profileUser} user={user} handleLogout={handleLogout}/>
                         </Grid.Column>
                     </Grid.Row>
                     <Grid.Row>
