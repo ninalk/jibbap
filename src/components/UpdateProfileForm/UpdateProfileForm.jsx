@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, Segment } from 'semantic-ui-react'
 
 
-export default function UpdateProfileForm({ editProfile, user, profileUser }) {
+export default function UpdateProfileForm({ editProfile }) {
     const [state, setState] = useState({
         name: '',
         username: '',

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: auto, sans-serif;
 }
 
 .App-logo {
@@ -48,9 +48,25 @@ a:hover {
 
 .logo {
   font-size: 1.6rem !important; 
-  margin: 5px 0 0 100px !important;
+  margin: 6px 0 0 80px !important;
+  font-family: auto !important;
 }
 
 .nav-bar {
   padding: 4px !important;
 }
+
+
+.dropdown-menu {
+  margin: 2px 20px 5px 0 !important;
+}
+
+.signup {
+  font-family: cursive;
+}
+
+.signup-logo {
+  font-family: auto !important;
+}
+
+

@@ -1,26 +1,28 @@
 import React from 'react';
 import UpdateProfileForm from '../../components/UpdateProfileForm/UpdateProfileForm';
-import {  Image, Grid } from 'semantic-ui-react';
+import {  Image, Grid, Header } from 'semantic-ui-react';
 
-export default function ProfileBio({ profileUser, editProfile, recipes, user }) {
+export default function ProfileBio({ profileUser, editProfile, recipes }) {
     return (
-        <Grid columns={5} className="centered" >
+        <Grid columns={6} className="centered" >
         <Grid.Row>
-            <Grid.Column className="four wide">
+            <Grid.Column className="three wide">
             <Image 
                 src={`${profileUser.photoUrl ? profileUser.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} `} 
                 avatar 
                 size='medium' 
+                style={{ maxWidth: 180}}
+                centered
                 />
             </Grid.Column>
             <Grid.Column textAlign="left" style={{ maxWidth: 280 }} className="eight wide">               
-                <h2>{profileUser.username}</h2>
+                <Header as='h2'>{profileUser.username}</Header>
                 <p><strong>{recipes.length} recipes</strong></p>
-                <p><strong>{profileUser.name}</strong></p>
-                <span>{profileUser.bio}</span>                
+                <p className='name-bio'><strong>{profileUser.name}</strong></p>
+                <p>{profileUser.bio}</p>                
             </Grid.Column>
             <Grid.Column>
-                <UpdateProfileForm editProfile={editProfile} user={user} profileUser={profileUser}/>
+                <UpdateProfileForm editProfile={editProfile} />
             </Grid.Column>
         </Grid.Row>
         </Grid>

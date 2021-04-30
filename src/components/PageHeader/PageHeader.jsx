@@ -6,7 +6,7 @@ import { Header, Segment, Image, Icon, Dropdown } from 'semantic-ui-react';
 export default function PageHeader({ user, handleLogout }){
     return (
         <Segment clearing className="nav-bar">
-            <Header as='h4' floated='right'>
+            <Header as='h3' floated='right' className='dropdown-menu'>
                 <Image src={user.photoUrl ? user.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} avatar></Image>
                 <Dropdown floating>
                     <Dropdown.Menu className="left">
