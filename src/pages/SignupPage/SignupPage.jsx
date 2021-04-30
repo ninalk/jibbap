@@ -120,7 +120,7 @@ export default function SignUpPage(props){
                     />
                     <Form.TextArea 
                         label='bio' 
-                        placeholder='Tell us about yourself...' 
+                        placeholder='Tell us your story...' 
                         name='bio'
                         onChange={handleChange}
                     />
