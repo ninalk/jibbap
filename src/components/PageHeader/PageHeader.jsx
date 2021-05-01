@@ -24,7 +24,7 @@ export default function PageHeader({ profileUser, user, handleLogout }){
                 </Dropdown>
             </Header>                      
             <Header as='h3' className='logo' floated='left'>
-                <Image src={icon} size='large'/><Link to="/" className='logo-text'> JIBBAP JOURNEY</Link>
+                <Image src={icon} size='medium'/><Link to="/" className='logo-text'> JIBBAP JOURNEY</Link>
             </Header>
         </Segment>
     )

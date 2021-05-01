@@ -21,7 +21,7 @@ export default function ProfileBio({ profileUser, editProfile, recipes, user }) 
             </Grid.Column>
 
             { user._id === profileUser._id ?
-                <Grid.Column>
+                <Grid.Column style={{ maxWidth: 280 }}>
                     <UpdateProfileForm editProfile={editProfile} />
                 </Grid.Column>
                 : ''
