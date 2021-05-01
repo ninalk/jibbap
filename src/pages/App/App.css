@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: auto, sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: rgb(249, 249, 249);
 }
 
@@ -44,13 +44,17 @@ a {
 }
 
 a:hover {
-  color: darkslategrey;
+  color: rgb(50, 53, 53);
 }
 
 .logo {
   font-size: 1.6rem !important; 
-  margin: 6px 0 0 80px !important;
+  margin: 2px 0 4px 80px !important;
   font-family: auto !important;
+}
+
+.logo-text {
+  vertical-align: sub;
 }
 
 .nav-bar {
@@ -59,7 +63,7 @@ a:hover {
 
 
 .dropdown-menu {
-  margin: 2px 20px 5px 0 !important;
+  margin: 10px 20px 5px 0 !important;
 }
 
 .signup {

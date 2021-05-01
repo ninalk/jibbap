@@ -26,7 +26,6 @@ export default function RecipeCard({ user, recipe, isProfile }){
                     /> 
                 </Link>
                 <Card.Header floated="right">{recipe.user.username}</Card.Header>
-
             </Card.Content>            
         }
             <Link to={`/recipes/${recipe._id}`}>

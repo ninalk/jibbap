@@ -15,7 +15,6 @@ export default function RecipeBody({ recipe }){
                     <Header><em>Cook Time:  {recipe.cookTime}</em></Header>
                 </Grid.Column>
             </Grid>
-            {/* <Divider hidden/> */}
             <Ingredients recipe={recipe}/>
             <Divider hidden/>
             <Instructions recipe={recipe}/>           

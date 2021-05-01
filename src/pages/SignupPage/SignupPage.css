@@ -1,4 +1,4 @@
-@media (min-width: 300px) and (max-width: 300px) {
+/* @media (min-width: 300px) and (max-width: 300px) {
     .signup-image {
         display: none;
     }
@@ -7,5 +7,12 @@
 @media (min-width: 350px) and (max-width: 450px) {
     .signup-image {
         display: block;
+    }
+} */
+
+.signup-image {
+    display: block;
+    @media (min-width: 300px) and (max-width: 450px) {
+        display: none;
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import icon from '../../images/JJ_icon_white-01.png';
 import { Link } from 'react-router-dom';
 import { Header, Segment, Image, Icon, Dropdown } from 'semantic-ui-react';
 
@@ -21,12 +22,9 @@ export default function PageHeader({ profileUser, user, handleLogout }){
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-            </Header>
-            {/* <Header floated='right'><Icon className='home' /></Header>             */}
-            <Header as='h3' textAlign='left' className='logo' >
-                <Link to="/">JIBBAP JOURNEY</Link>
-            </Header>
-            <Header as='h3' floated='left' className='logo'>
+            </Header>                      
+            <Header as='h3' className='logo' floated='left'>
+                <Image src={icon} size='medium'/><Link to="/" className='logo-text'> JIBBAP JOURNEY</Link>
             </Header>
         </Segment>
     )

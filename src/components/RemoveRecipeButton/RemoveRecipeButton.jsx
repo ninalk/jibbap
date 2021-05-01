@@ -6,11 +6,8 @@ export default function RemoveRecipeButton({ removeRecipe, recipe }) {
 
     function handleDeleteClick() {
         const recipeId = recipe._id
-        console.log(recipeId, 'id')
         removeRecipe(recipeId)
     }
-
-        
 
     return (
         <>
@@ -29,7 +26,7 @@ export default function RemoveRecipeButton({ removeRecipe, recipe }) {
                 <Button basic color='red' inverted onClick={() => setOpen(false)}>
                     <Icon name='remove' /> No
                 </Button>
-                <Button color='green' inverted onClick={() => setOpen(false)} onClick={handleDeleteClick} >
+                <Button color='green' inverted onClick={() => {setOpen(false); handleDeleteClick();}} >
                     <Icon name='checkmark' /> Yes
                 </Button>
             </Modal.Actions>

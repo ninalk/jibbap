@@ -57,13 +57,13 @@ export default function SignUpPage(props){
 
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Image 
-                    style={{ maxWidth: 400 }}
+                    // style={{ maxWidth: 450 }}
                     src={japchae} 
                     className="six wide column image signup-image"
                     verticalAlign='middle'
                 />
                 <Form 
-                    style={{ maxWidth: 400 }}                    
+                    // style={{ maxWidth: 450 }}                    
                     autoComplete="off"
                     className="six wide column"  
                     onSubmit={handleSubmit}>

@@ -10,7 +10,6 @@ export default function ProfileBio({ profileUser, editProfile, recipes, user }) 
                     src={`${profileUser.photoUrl ? profileUser.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} `} 
                     avatar 
                     size='medium' 
-                    // style={{ maxWidth: 180}}
                     centered
                     />
             </Grid.Column>
