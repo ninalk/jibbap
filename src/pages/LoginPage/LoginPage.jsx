@@ -54,9 +54,9 @@ export default function LoginPage(props){
                                 src={loginpage} 
                                 className="image signup-image"
                                 verticalAlign='middle'
-                                size='medium'
+                                size='huge'
                             />
-                            JIBBAP JOURNEY
+                            <span className='logo-text'> JIBBAP JOURNEY</span>
                         </Header>
                         <Segment stacked>
                             <Form.Input

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './FormPage.css';
+import logo from '../../images/JJ_icon_white-01.png';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Segment, Image } from 'semantic-ui-react';
 import * as recipesApi from '../../utils/recipe-api';
 import { useHistory } from 'react-router-dom';
 
@@ -52,10 +53,14 @@ export default function FormPage(props){
     return (
         <>
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' className='form=page'>
-          <Grid.Column style={{ maxWidth: 450 }}>
+          <Grid.Column style={{ maxWidth: 450 }}>               
               <Header as='h1' textAlign='center' className="signup-logo">
-                Create Recipe   
-              </Header>            
+                <Image 
+                      src={logo} 
+                      size='huge'
+                      centered
+                  /><span className='form-text'> Create Recipe</span>  
+                </Header>            
                 <Form autoComplete="off"  onSubmit={handleSubmit}>
                 <Segment raised>               
                     <Form.Input                    
