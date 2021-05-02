@@ -1,4 +1,4 @@
-<img src="/images/JJ_icon_white_01.png" />Jibbap Journey
+<img src="/public/images/jj_icon_white_01.png" />Jibbap Journey
 
 # Jibbap Journey
 
@@ -8,10 +8,10 @@ Jibbap Journey is a social media web app that allows food lovers and creators to
 ---
 
 ## Screenshots
-<img src="/images/signupPage.png" />
-<img src="/images/feedPage.png" />
-<img src="/images/formPage.png" />
-<img src="/images/recipePage.png" />
+<img src="/public/images/signupPage.png" />
+<img src="/public/images/feedPage.png" />
+<img src="/public/images/formPage.png" />
+<img src="/public/images/recipePage.png" />
 
 ### Technologies Used
 1. MonogoDB/Mongoose
@@ -22,6 +22,7 @@ Jibbap Journey is a social media web app that allows food lovers and creators to
 ### Getting Started:
 
 Link to deployed app (Heroku) - [JibbapJourney Website](https://jibbapjourney.herokuapp.com/)
+
 Link to Trello Board - [Jibbap Journey Trello Board](https://trello.com/b/qkJRjDvo/jibbap-journey)
 
 
