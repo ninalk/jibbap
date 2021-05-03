@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
-import loginpage from '../../images/JJ_icon_white-01.png';
+// import loginpage from '../../images/JJ_icon_white-01.png';
 import kimbap from '../../images/kimbap.png';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import userService from '../../utils/userService';
@@ -39,23 +39,15 @@ export default function LoginPage(props){
     return (
         <>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-                <Grid.Column width={3}>
+                <Grid.Column style={{ maxWidth: 450 }} >
                     <Image 
                         src={kimbap} 
                         className="image signup-image"
-                        size='medium'
+                        size='small'
+                        centered
                     />
-                </Grid.Column>
-                <Grid.Column style={{ maxWidth: 400 }} width={6}>
-                    <Form  autoComplete="off" onSubmit={handleSubmit} >
-                        
+                    <Form  autoComplete="off" onSubmit={handleSubmit} >                        
                         <Header as='h2' textAlign='center' className="signup-logo">
-                            <Image 
-                                src={loginpage} 
-                                className="image signup-image"
-                                verticalAlign='middle'
-                                size='huge'
-                            />
                             <span className='logo-text'> JIBBAP JOURNEY</span>
                         </Header>
                         <Segment stacked>

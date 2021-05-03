@@ -44,11 +44,9 @@ export default function EditRecipeButton({ updateRecipe, recipe }) {
             trigger={<Button>Edit Recipe</Button>}
         >
             <Modal.Content>
+            <h4>Edit Recipe</h4>
                 <Grid textAlign='center'  verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h3' textAlign='center'>
-                        Edit Recipe   
-                        </Header>            
                         <Form autoComplete="off" onSubmit={handleSubmit}>
                         <Segment raised>               
                             <Form.Input                    

@@ -28,7 +28,7 @@ export default function UpdateProfileForm({ editProfile }) {
     return (
         <>
         <Modal
-            centered={false}
+            basic
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
@@ -36,6 +36,7 @@ export default function UpdateProfileForm({ editProfile }) {
             trigger={<Button>Edit Profile</Button>}
         >
             <Modal.Content>
+                <h4>Edit Profile</h4>
                 <Form autoComplete="off" onSubmit={handleSubmit}>
                     <Segment textAlign='center'>
                         <Form.Input     
@@ -56,16 +57,15 @@ export default function UpdateProfileForm({ editProfile }) {
                         />
                     </Segment>
                 </Form>
-                <Divider hidden></Divider>
-                <Modal.Actions>
-                    <Button inverted color='red' onClick={() => setOpen(false)}>
-                        <Icon name='remove' /> Cancel
-                    </Button>
-                    <Button inverted color='green' onClick={() => {setOpen(false); handleSubmit();}}>
-                        <Icon name='checkmark' /> Submit
-                    </Button>
-                </Modal.Actions>
             </Modal.Content>      
+            <Modal.Actions>
+                <Button basic color='red' inverted onClick={() => setOpen(false)}>
+                    <Icon name='remove' /> Cancel
+                </Button>
+                <Button color='green' inverted onClick={() => {setOpen(false); handleSubmit();}}>
+                    <Icon name='checkmark' /> Submit
+                </Button>
+            </Modal.Actions>
         </Modal>
         </>
     )
